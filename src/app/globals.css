@@ -1,26 +1,90 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-primary: #1a1a1a;
+  --color-primary-light: #333333;
+  --color-accent: #dd3333;
+  --color-accent-hover: #bb2222;
+  --color-text: #111111;
+  --color-text-light: #666666;
+  --color-heading: #000000;
+  --color-bg-dark: #141414;
+  --color-bg-gray: #333333;
+  --color-bg-light: #f8f8f8;
+  --font-sans: "Source Sans Pro", "PT Sans", Arial, Helvetica, sans-serif;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  color: var(--color-text);
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--color-heading);
+  font-family: "Poppins", "PT Sans", sans-serif;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Navigation active state */
+.nav-active {
+  color: #dd3333 !important;
+  border-bottom: 2px solid #dd3333;
+}
+
+/* Hero overlay */
+.hero-overlay {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+}
+
+/* Service card hover effect */
+.service-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* About box hover */
+.about-box {
+  transition: all 0.3s ease;
+}
+.about-box:hover {
+  background-color: #f0f0f0;
+}
+.about-box:hover .about-icon {
+  color: #dd3333;
+}
+
+/* Blog card hover */
+.blog-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.blog-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Back to top button */
+.back-to-top {
+  transition: opacity 0.3s ease;
+}
+
+/* Mobile menu */
+.mobile-menu-overlay {
+  transition: opacity 0.3s ease;
+}
+
+/* Team card */
+.team-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.team-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
