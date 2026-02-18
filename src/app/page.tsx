@@ -1,28 +1,15 @@
 import Image from "next/image";
 import Link from "next/link";
-
-const services = [
-  {
-    title: "Site Assessment",
-    href: "/services/site-assessment",
-    image: "/images/services/assessment.jpg",
-  },
-  {
-    title: "Design and Consultation",
-    href: "/services/design-and-consultation",
-    image: "/images/services/design.jpg",
-  },
-  {
-    title: "Plan/Code Review",
-    href: "/services/code-review",
-    image: "/images/services/planning.jpg",
-  },
-  {
-    title: "Expert Witness",
-    href: "/services/expert-witness",
-    image: "/images/services/witness.jpg",
-  },
-];
+import { getFeaturedServices } from "@/data/services";
+import { blogPosts } from "@/data/blogs";
+import Container from "@/components/Container";
+import ServiceCard from "@/components/ServiceCard";
+import BlogCard from "@/components/BlogCard";
+import StatBar from "@/components/StatBar";
+import CTASection from "@/components/CTASection";
+import SectionHeading from "@/components/SectionHeading";
+import { testimonials } from "@/data/testimonials";
+import TestimonialCard from "@/components/TestimonialCard";
 
 const aboutItems = [
   {
@@ -63,107 +50,77 @@ const aboutItems = [
   },
 ];
 
-const blogPosts = [
-  {
-    title: "Accessibility Services Named in Forbes' first-ever Accessibility 100.",
-    href: "/blogs/forbes-accessibility-100",
-    image: "/images/blog/forbes-top100.jpg",
-  },
-  {
-    title: "What is required for a business to make its doorway accessible?",
-    href: "/blogs/doorway-accessible",
-    image: "/images/blog/woman-opening-door.jpg",
-  },
-  {
-    title: "Accessibility Services Helps Museums Like This One Become Disability-Inclusive",
-    href: "/blogs/museums-disability-inclusive",
-    image: "/images/blog/wheelchair-simulator.jpg",
-  },
-];
-
 export default function Home() {
+  const featuredServices = getFeaturedServices();
+
   return (
     <>
       {/* Hero Section */}
       <section className="relative h-[500px] md:h-[600px]">
         <Image
-          src="/images/hero-skyscrapers.jpg"
-          alt="Modern skyscrapers representing accessible built environment"
+          src="/images/new/accessible_round_bldg_exterior.webp"
+          alt="Modern accessible round building exterior"
           fill
           className="object-cover"
           priority
         />
         <div className="absolute inset-0 hero-overlay" />
         <div className="absolute inset-0 flex items-center">
-          <div className="max-w-7xl mx-auto px-4 w-full">
+          <Container>
             <div className="max-w-2xl">
-              <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
-                Making Our Built Environment Accessible
-              </h2>
+              <h1 className="text-3xl md:text-5xl font-bold text-white mb-4">
+                Facing an ADA Compliance Deadline?
+              </h1>
               <p className="text-white text-base md:text-lg mb-8 leading-relaxed">
                 Accessibility Services is a team of certified accessibility
                 specialists, plan examiners, attorneys, architects, and code
                 enforcement officials who are skilled in applying state and
-                federal accessibility requirements, including, the 2010 ADA
-                Standards, the Fair Housing Act Accessibility Guidelines, UFAS,
-                and state/local accessibility requirements to your project.
+                federal accessibility requirements to your project.
               </p>
-              <Link
-                href="/contact"
-                className="inline-block bg-[#dd3333] text-white px-8 py-3 font-semibold rounded hover:bg-[#bb2222] transition-colors"
-              >
-                Contact Us
-              </Link>
+              <div className="flex flex-wrap gap-4">
+                <Link
+                  href="/contact"
+                  className="inline-block bg-accent text-white px-8 py-3 font-semibold rounded hover:bg-accent-hover transition-colors"
+                >
+                  Free Consultation
+                </Link>
+                <Link
+                  href="/consulting"
+                  className="inline-block border-2 border-white text-white px-8 py-3 font-semibold rounded hover:bg-white hover:text-accent transition-colors"
+                >
+                  View Services
+                </Link>
+              </div>
             </div>
-          </div>
+          </Container>
         </div>
       </section>
+
+      {/* Stats Bar */}
+      <StatBar />
 
       {/* Services Section */}
-      <section className="bg-[#333333] py-12">
-        <div className="max-w-7xl mx-auto px-4">
+      <section className="bg-bg-gray py-12">
+        <Container>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {services.map((service) => (
-              <Link
-                key={service.href}
-                href={service.href}
-                className="service-card group block bg-[#2a2a2a] rounded-lg overflow-hidden"
-              >
-                <div className="relative h-48">
-                  <Image
-                    src={service.image}
-                    alt={service.title}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <div className="p-4 flex items-center justify-between">
-                  <h5 className="text-white text-sm font-semibold">
-                    {service.title}
-                  </h5>
-                  <span className="text-[#dd3333] group-hover:translate-x-1 transition-transform text-xl">
-                    &rsaquo;
-                  </span>
-                </div>
-              </Link>
+            {featuredServices.map((service) => (
+              <ServiceCard
+                key={service.slug}
+                service={service}
+                variant="dark"
+              />
             ))}
           </div>
-        </div>
+        </Container>
       </section>
 
-      {/* About Us Section */}
+      {/* About Us / Why Choose ACS Section */}
       <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-12">
-            <h3 className="text-3xl font-bold mb-4">About Us</h3>
-            <p className="text-gray-600 max-w-4xl mx-auto">
-              Accessibility Services is proud to be recognized on the Forbes
-              Accessibility 100 List for our commitment to inclusive design and
-              accessibility. We&apos;re a Registered Provider for the
-              International Code Council and an American Institute of Architects
-              Approved Provider of Continuing Education
-            </p>
-          </div>
+        <Container>
+          <SectionHeading
+            title="About Us"
+            subtitle="Accessibility Services is proud to be recognized on the Forbes Accessibility 100 List for our commitment to inclusive design and accessibility. We're a Registered Provider for the International Code Council and an American Institute of Architects Approved Provider of Continuing Education"
+          />
 
           <div className="flex flex-col lg:flex-row gap-8">
             <div className="lg:w-2/3">
@@ -174,7 +131,7 @@ export default function Home() {
                     className="about-box p-6 rounded-lg border border-gray-100"
                   >
                     <div className="flex items-center gap-4 mb-3">
-                      <span className="text-[#dd3333] about-icon">
+                      <span className="text-accent about-icon">
                         {item.icon}
                       </span>
                       <h5 className="font-semibold text-sm">{item.title}</h5>
@@ -196,40 +153,46 @@ export default function Home() {
               />
             </div>
           </div>
-        </div>
+        </Container>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className="py-16 bg-bg-light">
+        <Container>
+          <SectionHeading title="What Our Clients Say" />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+            {testimonials.slice(0, 2).map((t, i) => (
+              <TestimonialCard key={i} testimonial={t} />
+            ))}
+          </div>
+        </Container>
       </section>
 
       {/* Blog Section */}
-      <section className="py-16 bg-[#f8f8f8]">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-12">
-            <h3 className="text-3xl font-bold">Blogs</h3>
-          </div>
+      <section className="py-16 bg-white">
+        <Container>
+          <SectionHeading title="Latest Insights" />
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {blogPosts.map((post) => (
-              <Link
-                key={post.href}
-                href={post.href}
-                className="blog-card bg-white rounded-lg overflow-hidden shadow-sm"
-              >
-                <div className="relative h-52">
-                  <Image
-                    src={post.image}
-                    alt={post.title}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <div className="p-5">
-                  <h5 className="text-sm font-semibold leading-snug hover:text-[#dd3333] transition-colors">
-                    {post.title}
-                  </h5>
-                </div>
-              </Link>
+              <BlogCard key={post.slug} post={post} />
             ))}
           </div>
-        </div>
+          <div className="text-center mt-8">
+            <Link
+              href="/blogs"
+              className="text-accent hover:underline font-medium"
+            >
+              View All Posts &rarr;
+            </Link>
+          </div>
+        </Container>
       </section>
+
+      {/* CTA Band */}
+      <CTASection
+        headline="Schedule Your Free Consultation"
+        description="Our team of certified specialists is ready to help ensure your project meets all accessibility requirements."
+      />
     </>
   );
 }

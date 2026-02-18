@@ -11,18 +11,21 @@
   --color-bg-dark: #141414;
   --color-bg-gray: #333333;
   --color-bg-light: #f8f8f8;
-  --font-sans: "Source Sans Pro", "PT Sans", Arial, Helvetica, sans-serif;
+  --font-sans: var(--font-source-sans), "Source Sans 3", "PT Sans", Arial, Helvetica, sans-serif;
+  --font-heading: var(--font-poppins), "Poppins", "PT Sans", sans-serif;
 }
 
-body {
-  font-family: var(--font-sans);
-  color: var(--color-text);
-  line-height: 1.6;
-}
+@layer base {
+  body {
+    font-family: var(--font-sans);
+    color: var(--color-text);
+    line-height: 1.6;
+  }
 
-h1, h2, h3, h4, h5, h6 {
-  color: var(--color-heading);
-  font-family: "Poppins", "PT Sans", sans-serif;
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--color-heading);
+    font-family: var(--font-heading);
+  }
 }
 
 /* Smooth scrolling */
@@ -32,13 +35,13 @@ html {
 
 /* Navigation active state */
 .nav-active {
-  color: #dd3333 !important;
-  border-bottom: 2px solid #dd3333;
+  color: var(--color-accent) !important;
+  border-bottom: 2px solid var(--color-accent);
 }
 
 /* Hero overlay */
 .hero-overlay {
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.55));
 }
 
 /* Service card hover effect */
@@ -55,10 +58,10 @@ html {
   transition: all 0.3s ease;
 }
 .about-box:hover {
-  background-color: #f0f0f0;
+  background-color: var(--color-bg-light);
 }
 .about-box:hover .about-icon {
-  color: #dd3333;
+  color: var(--color-accent);
 }
 
 /* Blog card hover */

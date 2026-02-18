@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Source_Sans_3, Poppins } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import FloatingCTA from "@/components/FloatingCTA";
 import "./globals.css";
 
 const sourceSans = Source_Sans_3({
@@ -40,6 +41,7 @@ export default function RootLayout({
         <Header />
         <main>{children}</main>
         <Footer />
+        <FloatingCTA />
       </body>
     </html>
   );

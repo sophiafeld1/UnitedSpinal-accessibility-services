@@ -1,5 +1,9 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { serviceAreas } from "@/data/projects";
+import PageHeader from "@/components/PageHeader";
+import Container from "@/components/Container";
+import VerticalFilter from "@/components/VerticalFilter";
 
 export const metadata: Metadata = {
   title: "Projects",
@@ -7,33 +11,13 @@ export const metadata: Metadata = {
     "From giant sports stadiums to mom-and-pop restaurants, we have provided accessibility consulting services for a wide range of projects.",
 };
 
-const serviceAreas = [
-  "Architectural Firms",
-  "Commerce and Industry",
-  "Education Facilities",
-  "Hotels",
-  "Local, State, and Federal Government Administration",
-  "Mass Transit",
-  "Medical Facilities",
-  "Museums",
-  "Recreation",
-];
-
 export default function ProjectsPage() {
   return (
     <>
-      {/* Page Header */}
-      <section className="bg-[#f8f8f8] py-12">
-        <div className="max-w-7xl mx-auto px-4">
-          <h1 className="text-3xl md:text-4xl font-bold text-center mb-4">
-            Projects
-          </h1>
-        </div>
-      </section>
+      <PageHeader title="Projects" />
 
-      {/* Main Content */}
       <section className="py-16">
-        <div className="max-w-7xl mx-auto px-4">
+        <Container>
           <div className="max-w-4xl mx-auto text-center mb-12">
             <p className="text-gray-700 leading-relaxed text-lg">
               From giant sports stadiums to mom-and-pop restaurants, we have
@@ -44,8 +28,10 @@ export default function ProjectsPage() {
             </p>
           </div>
 
+          <VerticalFilter />
+
           {/* Client Logos */}
-          <div className="mb-16">
+          <div className="mt-16 mb-16">
             <Image
               src="/images/projects/project-logos.jpg"
               alt="Notable client logos including United Nations, Highmark Stadium, San Diego Zoo, Marriott, and Urban Edge Properties"
@@ -71,7 +57,7 @@ export default function ProjectsPage() {
               ))}
             </div>
           </div>
-        </div>
+        </Container>
       </section>
     </>
   );

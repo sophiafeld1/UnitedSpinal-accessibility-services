@@ -1,0 +1,122 @@
+import type { TeamMember } from "./types";
+
+export const teamMembers: TeamMember[] = [
+  {
+    name: "Adam Berger",
+    slug: "adam-berger",
+    title: "Senior Accessibility Consultant",
+    email: "aberger@accessibility-services.com",
+    bio: "Adam has extensive experience in the accessibility field.",
+    image: "/images/team/adam-berger.jpg",
+    location: "New York",
+    credentials: [],
+  },
+  {
+    name: "Bernardo Deschamps",
+    slug: "bernardo-deschamps",
+    title: "Accessibility Compliance Specialist",
+    email: "bdeschamps@accessibility-services.com",
+    bio: "Bernardo's background includes both architecture and real estate.",
+    image: "/images/team/bernardo-deschamps.png",
+    location: "New York",
+    credentials: [],
+  },
+  {
+    name: "Bill Hudson",
+    slug: "bill-hudson",
+    title: "Accessibility Compliance Specialist",
+    email: "whudson@accessibility-services.com",
+    bio: "As one of approximately 800 certified Master Code Professionals worldwide, Bill has decades of experience in code enforcement and accessibility compliance.",
+    image: "/images/team/bill-hudson.jpg",
+    location: "New York",
+    credentials: ["MCP"],
+  },
+  {
+    name: "Dominic Marinelli",
+    slug: "dominic-marinelli",
+    title: "Vice President",
+    email: "DMarinelli@accessibility-services.com",
+    bio: "Dominic heads our Accessibility Services program. He has over 35 years of experience in the accessibility field, working with architects, designers, and building owners to ensure compliance with all applicable codes and standards.",
+    image: "/images/team/dominic-marinelli.jpg",
+    location: "New York",
+    credentials: [],
+  },
+  {
+    name: "Ivan Heredia, AIA",
+    slug: "ivan-heredia",
+    title: "Architect",
+    email: "IHeredia@accessibility-services.com",
+    bio: "Ivan is a registered architect with 11 years of comprehensive experience in architectural design, project management, and accessibility consulting.",
+    image: "/images/team/ivan-heredia.jpg",
+    location: "New York",
+    credentials: ["AIA"],
+  },
+  {
+    name: "Jimmy Zuehl",
+    slug: "jimmy-zuehl",
+    title: "Senior Accessibility Compliance Specialist",
+    email: "jzuehl@accessibility-services.com",
+    bio: "Jimmy's over 20 years of experience in architecture gives him a comprehensive understanding of the design and construction process, enabling him to provide practical accessibility solutions.",
+    image: "/images/team/jimmy-zuehl.jpg",
+    location: "New York",
+    credentials: ["CASp", "NYS-CEO", "ICC-AIPE"],
+  },
+  {
+    name: "Kleo King",
+    slug: "kleo-king",
+    title: "Senior Director of Accessibility Operations & Counsel",
+    email: "kking@unitedspinal.org",
+    bio: "Kleo began her career with United Spinal in 1987. She provides legal counsel and oversees the operational aspects of the Accessibility Services program.",
+    image: "/images/team/kleo-king.jpg",
+    location: "New York",
+    credentials: [],
+  },
+  {
+    name: "Marsha Mazz",
+    slug: "marsha-mazz",
+    title: "Director of Accessibility Codes and Standards",
+    email: "mmazz@accessibility-services.com",
+    bio: "Before joining United Spinal, Marsha headed the United States Access Board's Office of Technical and Information Services, where she was responsible for developing and implementing accessibility guidelines and standards.",
+    image: "/images/team/marsha-mazz.jpg",
+    location: "New York",
+    credentials: [],
+  },
+  {
+    name: "Nathan Roether",
+    slug: "nathan-roether",
+    title: "Accessibility Compliance Specialist, Accessibility Inspector/Plans Examiner",
+    email: "nroether@accessibility-services.com",
+    bio: "Nathan is a focal point of Accessibility Services operations in the Midwest, bringing extensive experience in building inspection and accessibility compliance.",
+    image: "/images/team/nathan-roether.jpg",
+    location: "New York",
+    credentials: [],
+  },
+  {
+    name: "Patrick Joksimovic",
+    slug: "patrick-joksimovic",
+    title: "Accessibility Compliance Specialist",
+    email: "PJoksimovic@accessibility-services.com",
+    bio: "Patrick's experience includes helping clients keep current with applicable code requirements and providing practical solutions for accessibility challenges.",
+    image: "/images/team/patrick-joksimovic.jpg",
+    location: "New York",
+    credentials: [],
+  },
+  {
+    name: "Travis Monroe",
+    slug: "travis-monroe",
+    title: "Accessibility Compliance Specialist",
+    email: "tmonroe@accessibility-services.com",
+    bio: "Travis's experience as a project manager and architect has taken him from residential to commercial projects, giving him a broad understanding of accessibility requirements across all building types.",
+    image: "/images/team/travis-monroe.jpg",
+    location: "New York",
+    credentials: [],
+  },
+];
+
+export function getTeamMemberBySlug(slug: string): TeamMember | undefined {
+  return teamMembers.find((m) => m.slug === slug);
+}
+
+export function getTeamMembersByLocation(location: string): TeamMember[] {
+  return teamMembers.filter((m) => m.location === location);
+}
