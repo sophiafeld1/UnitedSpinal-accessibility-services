@@ -2,7 +2,21 @@
 
 ## Context
 
-The current Next.js site replicates the existing WordPress site but lacks the conversion-focused design, expanded service coverage, and lead generation infrastructure that competitors demonstrate. The ACS Webpage Priorities PDF identifies significant content gaps (TX RAS, CASp, inspection services, training expansion), while competitive analysis of ~12 firms reveals ACS is behind on testimonials, quantified stats, CTAs, fee schedules, and pain-point messaging. This plan addresses both.
+The current Next.js site replicates the existing WordPress site but lacks the conversion-focused design, expanded service coverage, and lead generation infrastructure that competitors demonstrate. The ACS Webpage Priorities PDF identifies significant content gaps (TX RAS, CASp, inspection services, training expansion), while competitive analysis of ~12 firms reveals ACS is behind on testimonials, quantified stats, CTAs, fee schedules, and pain-point messaging. Stakeholder input (see `usp_needs_notes.md`) adds: positioning must reflect arch/construction industry (not medical/insurance); clarify ACS as for-profit subsidiary of United Spinal (avoid confusion with the nonprofit); and emphasize that ACS works with architects, contractors, and developers—not with people with disabilities (that’s USp). Stakeholders also note that competitor and prospect sites feel more **professional**, with **moving images and video**, **crisp graphics**, and **dynamic menus** (vs. flat/static). This plan addresses priorities, messaging, and that look-and-feel bar.
+
+---
+
+## Look & feel (cross-phase)
+
+Close the gap vs. competitor "slickness" (see `usp_needs_notes.md`):
+
+| Gap | Plan |
+|-----|------|
+| **Professional** | Architectural/construction aesthetic, consistent theme tokens, clear hierarchy, accreditation badges. |
+| **Moving images / video** | Hero: support optional background video or subtle motion (e.g. Ken Burns on hero image); consider short explainer or testimonial video on homepage/About. Video content from ACS or placeholder for Phase 2+. |
+| **Crisp graphics** | High-res imagery (drawings, sites, accessible features); avoid low-res or generic stock; SVG where appropriate for icons and logos. |
+| **Dynamic menus** | Mega-menu (Phase 4F) with smooth expand/collapse and hover states—not a flat link list; consider light stagger/fade for dropdown content. Nav and key CTAs use clear hover/active states. |
+| **Polish** | Consistent transitions (e.g. 200–300 ms) on cards, buttons, and dropdowns; testimonial carousel animated; optional subtle scroll or hover effects on service cards. Respect reduced-motion preferences (`prefers-reduced-motion`). |
 
 ---
 
@@ -69,11 +83,11 @@ Every page imports from `/src/data/` and uses shared components. No new content,
 
 | Section | Current | New |
 |---------|---------|-----|
-| Hero | Generic skyscrapers, descriptive text, "Contact Us" | Pain-point headline ("Facing an ADA Compliance Deadline?"), two CTAs (Free Consultation + View Services), Forbes badge overlay |
+| Hero | Generic skyscrapers, descriptive text, "Contact Us" | Pain-point headline ("Facing an ADA Compliance Deadline?"), two CTAs (Free Consultation + View Services), Forbes badge overlay; **visual:** high-res hero image and/or optional background video / subtle motion (see Look & feel) |
 | Stats | None | Full-width `StatBar` below hero: "50+ Years \| 1,000+ Projects \| 48 States \| 11 Certified Specialists" |
 | Services | 4 cards on dark bg | 6-8 cards in two rows: primary services + state-specific (TX RAS, CASp), each with pain-point sub-headline |
-| About | 4 generic info boxes + image | "Why Choose ACS?" value props + credential badges row (AIA, ICC logos) + Forbes callout |
-| Testimonials | None | **NEW** testimonial carousel section |
+| About | 4 generic info boxes + image | "Why Choose ACS?" value props + credential badges row (AIA, ICC logos) + Forbes callout; **positioning**: mission-focused experts, subsidiary of United Spinal (deep disability expertise), we work with architects, builders, developers, contractors—avoid confusion with United Spinal nonprofit |
+| Testimonials | None | **NEW** testimonial carousel section (animated; see Look & feel) |
 | Blog | 3 cards, no metadata | 3 cards with dates/authors, "Latest Insights" heading + "View All" link |
 | CTA Band | None | **NEW** full-width "Schedule Your Free Consultation" before footer |
 
@@ -112,6 +126,9 @@ All use the dynamic `[slug]/page.tsx` template. Key work is data population.
 - All services get: testimonials filtered by `serviceSlug`, FAQs filtered by `serviceSlug`, related services grid, CTA section
 - **New component:** `RelatedServices.tsx`
 
+### 3G. Additional state pages (deferred)
+- ACS has skills/certs in OK, FL, NY in addition to CA and TX. **Future phase:** consider "page per state" with state-specific keywords for SEO (CA and TX remain priority for this plan).
+
 ---
 
 ## Phase 4: Enhanced Existing Pages
@@ -140,12 +157,13 @@ All use the dynamic `[slug]/page.tsx` template. Key work is data population.
 
 ### 4E. About page (`/src/app/about/page.tsx`)
 - Add: mission callout, history timeline (helped write ADA, founded, Forbes), accreditations section, stats bar
+- **Positioning copy:** Clarify ACS vs. United Spinal: ACS is the for-profit consulting division; we work with able-bodied architects, contractors, and developers; United Spinal (nonprofit) works with people with disabilities; "mission-focused experts" + "subsidiary so we know the issues deeply"
 - **New component:** `Timeline.tsx`
 
 ### 4F. Header (`/src/components/Header.tsx`)
-- Services dropdown mega-menu organized by category
+- Services dropdown **mega-menu** organized by category—**dynamic**: smooth expand/collapse, hover states (not flat link list); optional stagger/fade on dropdown (see Look & feel)
 - Phone number in header bar
-- "Free Consultation" accent CTA button in nav
+- "Free Consultation" accent CTA button in nav (hover/active states)
 - **New components:** `MegaMenu.tsx`, `Breadcrumbs.tsx`
 
 ### 4G. Footer (`/src/components/Footer.tsx`)
@@ -188,13 +206,16 @@ All use the dynamic `[slug]/page.tsx` template. Key work is data population.
 3. Stripe payment integration (`stripe` + `@stripe/stripe-js`)
 4. Self-learning modules (requires auth - NextAuth/Clerk - separate project)
 
-### 6C. Live chat
-- Third-party widget (Crisp recommended for free tier)
-- Script tag in layout.tsx, lazy-loaded
+### 6C. Chat (Phase II: AI chat)
+- **Phase II target:** AI chat widget (Advocara integration) to build business—preferred over generic live chat.
+- If Phase II not ready: interim third-party live chat (e.g. Crisp) in layout.tsx, lazy-loaded.
 
 ### 6D. Blog CMS
 - Migrate from hardcoded to MDX files in `/src/content/blog/`
 - Install `@next/mdx`, `gray-matter`, `remark`, `rehype`
+
+### 6E. State/location customization (future)
+- Explore state-by-IP lookup or AI-driven prompts to customize site/answers by state (e.g. surface TX RAS vs. CASp). Backlog; no implementation in current phases.
 
 ---
 
@@ -216,6 +237,10 @@ All use the dynamic `[slug]/page.tsx` template. Key work is data population.
 - [Johnson Kelley (TX)](https://www.johnsonkelley.com/) - hard stats ("26,000+ reviews, 33 years"), action CTAs ("Fast Track Your Project"), loyalty programs
 - [ADA Consultant Services (CA)](https://adaconsultantservices.com/) - **leads with pain point** ("You've been notified of a violation"), free exterior audit, YouTube videos, "400+ evaluations"
 
+**ACS-identified competitors (add to intel as needed):**
+- Steven Winters & Associates
+- CSI
+
 ### Key Patterns ACS Lacks vs. Best Competitors
 
 | Tactic | Who Does It Best | ACS Currently |
@@ -226,7 +251,7 @@ All use the dynamic `[slug]/page.tsx` template. Key work is data population.
 | Named expert profiles w/ credentials | Jensen Hughes, Higgins | Team page lacks certifications |
 | Project portfolio with descriptions | TERP (Fontainebleau, etc.) | Logo strip only |
 | Free entry offer / lead magnet | ADA Consultant Svcs (free audit) | None |
-| Video content | ADA Consultant Svcs (YouTube) | None |
+| Video content / moving imagery | ADA Consultant Svcs (YouTube), TERP (polish) | None; plan adds hero motion/video option + video in Content Needed |
 | CTA after every section | Higgins, Access IQ | Single contact page |
 | Pain-point-first messaging | ADA Consultant Svcs | Feature-first messaging |
 | FAQ sections | Higgins | None |
@@ -248,9 +273,11 @@ Before or during implementation, ACS must provide:
 8. **Office addresses** - Texas and California office details
 9. **Phone number** - for header and CTAs
 10. **Quantified stats** - exact numbers for projects, years, states
-11. **New imagery** - architectural drawings, accessible features, team on-site
+11. **New imagery** - architectural drawings, accessible features, team on-site (high-res; crisp graphics). **Video (optional):** hero or short explainer/testimonial clip for moving imagery
 12. **FAQ content** - common questions per service
 13. **Training schedule** - upcoming events if any
+14. **ACS vs. United Spinal positioning copy** - approved wording for "for-profit subsidiary," "we work with architects/contractors," "mission-focused experts," and avoiding nonprofit confusion
+15. **Optional (if state pages expand later)** - OK, FL, NY service/SEO content and keywords
 
 ---
 
