@@ -41,9 +41,9 @@ export default function Header() {
   const pathname = usePathname();
 
   return (
-    <header className="w-full">
-      {/* Top bar with phone */}
-      <div className="bg-bg-dark text-gray-400 text-xs py-1.5">
+    <header className="w-full bg-bg-dark">
+      {/* Top bar: email */}
+      <div className="text-gray-400 text-xs py-1.5">
         <div className="max-w-7xl mx-auto px-4 flex justify-end items-center gap-4">
           <a
             href="mailto:info@accessibility-services.com"
@@ -54,30 +54,50 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Logo bar */}
-      <div className="bg-white relative">
+      {/* Single dark bar: logo + nav + CTA */}
+      <nav className="sticky top-0 z-50 border-t border-white/10">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="flex justify-center py-4">
-            <Link href="/">
-              <Image
-                src="/images/logo.jpg"
-                alt="Accessibility Services"
-                width={350}
-                height={99}
-                priority
-                className="h-auto"
-              />
+          <div className="flex items-center justify-between gap-6 py-3">
+            {/* Logo: icon (clipped) + three-line lockup; top line left-aligned to oval, ACCESSIBILITY narrow/large, SERVICES a touch smaller and right */}
+            <Link
+              href="/"
+              className="flex items-center shrink-0 gap-2"
+              aria-label="Accessibility Services home"
+            >
+              <span className="relative h-10 w-14 shrink-0 overflow-hidden">
+                <Image
+                  src="/images/United-Spinal-Logo-Black.png"
+                  alt=""
+                  width={140}
+                  height={48}
+                  priority
+                  className="h-10 w-auto max-w-none object-left object-contain"
+                />
+              </span>
+              <span className="flex flex-col justify-center gap-y-0.5 leading-tight">
+                <span
+                  className="text-[11px] font-bold text-gray-400 -ml-2.5"
+                  style={{ fontFamily: "var(--font-sans)" }}
+                >
+                  United Spinal Association&apos;s
+                </span>
+                <span
+                  className="text-xl md:text-2xl font-normal uppercase text-white tracking-wide"
+                  style={{ fontFamily: "var(--font-condensed)" }}
+                >
+                  ACCESSIBILITY
+                </span>
+                <span
+                  className="text-[1.52rem] md:text-[1.69rem] font-bold uppercase text-gray-500 ml-0.5 tracking-wide"
+                  style={{ fontFamily: "var(--font-sans)" }}
+                >
+                  SERVICES
+                </span>
+              </span>
             </Link>
-          </div>
-        </div>
-      </div>
 
-      {/* Navigation bar */}
-      <nav className="bg-bg-dark sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="flex items-center justify-between">
             {/* Desktop nav */}
-            <div className="hidden lg:flex items-center flex-1">
+            <div className="hidden lg:flex items-center flex-1 justify-center">
               {navItems.map((item) => (
                 <div
                   key={item.href}
