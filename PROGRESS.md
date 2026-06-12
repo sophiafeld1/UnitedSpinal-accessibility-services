@@ -71,15 +71,18 @@ Before the site can go live, ACS must provide:
 3. **Fee schedules** — TX RAS and CASp pricing tiers (currently "Contact us for pricing")
 4. **TX RAS content** — TDLR form links, Texas regulatory details
 5. **CASp content** — "Qualified defendant" legal explanation, CA regulatory details
-6. **Team locations** — Which office each member is based in (all defaulted to "New York")
+6. **Team locations** — Optional - Which office each member is based in (all defaulted to "New York")
 7. **Team credentials** — Complete certification list per person (only Jimmy Zuehl, Bill Hudson, Ivan Heredia have creds listed)
 8. **Office addresses** — Texas and California office details (only NY HQ exists)
 9. **Phone number** — For header and CTAs (not currently on the site)
 10. **Quantified stats** — Exact numbers for projects completed, years in operation, states served
 11. **New service images** — TX RAS, CASp, Inspection, Technical Assistance, Universal Design (currently reusing existing images)
 12. **FAQ content** — Additional questions per service
-13. **Training schedule** — Real upcoming events (currently placeholder)
-14. **Full blog post content** — All 3 blog posts are still stubs (one paragraph each)
+13. **Training schedule** — Real upcoming events (currently placeholder). Ideally, this will integrate a training sub-page hosted by a training PaaS with schedule, payment, email reminder, attendee tracking, etc. Thinkific at $79/month for the "Start" plan seems good.
+14. **Full blog post content** — All 3 blog posts are still stubs (one paragraph each). This will require some lightweight CMS or blog posting process to update blogs going forward.
+15. **Contact form** wired to USp email
+16. **Consult scheduling form** if desired via Calendly or similar
+
 
 ## Known Issues / Technical Notes
 

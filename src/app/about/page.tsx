@@ -9,73 +9,53 @@ import SectionHeading from "@/components/SectionHeading";
 export const metadata: Metadata = {
   title: "About Us",
   description:
-    "Accessibility Services specializes exclusively in making built environments accessible for people with disabilities, operating as a program of United Spinal Association.",
+    "Mission-focused accessibility experts. A program of United Spinal Association; we work with architects, contractors, and developers.",
 };
 
 const servicesList = [
-  "Plan reviews for new construction and renovations",
-  "Construction site inspections for compliance monitoring",
-  "Existing building accessibility assessments",
-  "Expert witness services for legal compliance support",
-  "Ongoing technical assistance throughout projects",
+  "Plan reviews for new buildings and alterations, from schematic design through construction drawings",
+  "Site inspections throughout construction for new buildings and renovations",
+  "Existing building inspections to ensure compliance with current codes and laws",
+  "Expert witness services to help businesses become as accessible as possible and support efforts when facing legal action",
+  "Ongoing technical assistance and guidance so your facility remains accessible and compliant",
 ];
 
 export default function AboutPage() {
   return (
     <>
-      <PageHeader title="About Us" />
+      <PageHeader title="About Us" compact />
 
-      {/* Mission callout */}
-      <section className="py-12 bg-white">
+      {/* About intro + what we do */}
+      <section className="py-8 bg-white">
         <Container>
-          <div className="max-w-4xl mx-auto">
-            <div className="bg-accent/10 border-l-4 border-accent p-6 rounded-r-lg mb-8">
-              <p className="text-gray-800 text-lg font-medium">
-                Accessibility Services specializes exclusively in making built
-                environments accessible for people with disabilities. A proud
-                program of United Spinal Association, our unique expertise sets
-                us apart.
-              </p>
-            </div>
-
-            <p className="text-gray-700 text-lg leading-relaxed mb-6">
-              Operating as a program of United Spinal Association, we bring
-              distinctive expertise that reassures clients about their
-              accessibility needs. We were featured on the inaugural Forbes
-              Accessibility 100 List in recognition of our commitment to
-              inclusive design.
+          <div className="max-w-4xl mx-auto space-y-5">
+            <p className="text-gray-800 text-lg leading-relaxed">
+              We are mission-focused experts who work with architects,
+              contractors, and developers to make buildings and sites
+              accessible and compliant. As a program of United Spinal
+              Association, we bring deep, practical knowledge of accessibility
+              needs to every project.
             </p>
-          </div>
-        </Container>
-      </section>
-
-      <StatBar />
-
-      {/* History timeline */}
-      <section className="py-16">
-        <Container>
-          <SectionHeading title="Our History" />
-          <div className="max-w-4xl mx-auto">
-            <Timeline />
-          </div>
-        </Container>
-      </section>
-
-      {/* What We Do */}
-      <section className="py-16 bg-bg-light">
-        <Container>
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-2xl font-bold mb-4">What We Do</h2>
-            <p className="text-gray-700 leading-relaxed mb-4">
-              With our decades of experience, Accessibility Services can help you
-              navigate the often conflicting requirements of aesthetics and
-              accessibility. We will keep you updated on changes and revisions in
-              building codes at all levels, offering innovative solutions to
-              accessibility for any facility.
+            <p className="text-gray-700 leading-relaxed">
+              We&apos;re proud to be recognized on the first-ever Forbes
+              Accessibility 100 List for our commitment to inclusive design and
+              accessibility.
             </p>
-
-            <h3 className="text-xl font-bold mb-4">Our Services Include:</h3>
-            <ul className="space-y-3 mb-8">
+            <p className="text-gray-700 leading-relaxed">
+              We helped write the landmark Americans with Disabilities Act, the
+              Air Carrier Access Act, and the Fair Housing Amendments Act. Today
+              we work with local and state jurisdictions to update building
+              codes and with the International Code Council on IBC and IEBC
+              accessibility requirements.
+            </p>
+            <p className="text-gray-700 leading-relaxed">
+              With our decades of experience, we help you navigate the often
+              conflicting requirements of aesthetics and accessibility, keep you
+              updated on changes and revisions in building codes at all levels,
+              and offer innovative solutions for any facility.
+            </p>
+            <h2 className="text-xl font-bold text-gray-900 pt-2">We offer:</h2>
+            <ul className="space-y-2">
               {servicesList.map((service) => (
                 <li key={service} className="flex items-start gap-3">
                   <svg
@@ -97,27 +77,39 @@ export default function AboutPage() {
         </Container>
       </section>
 
+      <StatBar />
+
+      {/* History timeline */}
+      <section className="py-10">
+        <Container>
+          <SectionHeading title="Our History" />
+          <div className="max-w-4xl mx-auto">
+            <Timeline />
+          </div>
+        </Container>
+      </section>
+
       {/* Accreditations */}
-      <section className="py-16">
+      <section className="py-10">
         <Container>
           <SectionHeading
             title="Our Accreditations"
             subtitle="We are recognized by leading industry organizations."
           />
-          <div className="flex flex-wrap justify-center gap-6">
-            <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100 text-center min-w-[200px]">
+          <div className="flex flex-wrap justify-center gap-4">
+            <div className="bg-white p-5 rounded-lg shadow-sm border border-gray-100 text-center min-w-[200px]">
               <p className="text-lg font-bold mb-1">AIA/CES</p>
               <p className="text-sm text-gray-600">
                 Approved Provider of Continuing Education
               </p>
             </div>
-            <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100 text-center min-w-[200px]">
+            <div className="bg-white p-5 rounded-lg shadow-sm border border-gray-100 text-center min-w-[200px]">
               <p className="text-lg font-bold mb-1">ICC</p>
               <p className="text-sm text-gray-600">
                 Registered Provider
               </p>
             </div>
-            <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100 text-center min-w-[200px]">
+            <div className="bg-white p-5 rounded-lg shadow-sm border border-gray-100 text-center min-w-[200px]">
               <p className="text-lg font-bold mb-1">United Spinal</p>
               <p className="text-sm text-gray-600">
                 Program of United Spinal Association
@@ -125,7 +117,7 @@ export default function AboutPage() {
             </div>
           </div>
 
-          <div className="text-center mt-12">
+          <div className="text-center mt-8">
             <CTAButton href="/contact">Contact Us</CTAButton>
           </div>
         </Container>

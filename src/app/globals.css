@@ -13,6 +13,7 @@
   --color-bg-light: #f8f8f8;
   --font-sans: var(--font-source-sans), "Source Sans 3", "PT Sans", Arial, Helvetica, sans-serif;
   --font-heading: var(--font-poppins), "Poppins", "PT Sans", sans-serif;
+  --font-condensed: var(--font-condensed), "Oswald", "Arial Narrow", sans-serif;
 }
 
 @layer base {

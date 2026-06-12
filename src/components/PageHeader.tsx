@@ -3,13 +3,14 @@ import Container from "./Container";
 interface PageHeaderProps {
   title: string;
   subtitle?: string;
+  compact?: boolean;
 }
 
-export default function PageHeader({ title, subtitle }: PageHeaderProps) {
+export default function PageHeader({ title, subtitle, compact }: PageHeaderProps) {
   return (
-    <section className="bg-bg-light py-12">
+    <section className={`bg-bg-light ${compact ? "py-5" : "py-12"}`}>
       <Container>
-        <h1 className="text-3xl md:text-4xl font-bold text-center mb-4">
+        <h1 className={`text-3xl md:text-4xl font-bold text-center ${compact ? "mb-0" : "mb-4"}`}>
           {title}
         </h1>
         {subtitle && (
