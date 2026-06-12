@@ -1,4 +1,4 @@
-# Statement of Work — ACS Public Website
+# Professional Services Agreement — ACS Public Website
 
 Document status: Draft for legal and commercial review. 
 
@@ -8,14 +8,14 @@ Document status: Draft for legal and commercial review.
 
 | Role | Entity | Address / contact |
 |------|--------|-------------------|
-| ACS | Accessibility Services — United Spinal Association | 102 Duane Road, Fort Totten NY 11359 |
-| Advocara | Advocara Innovation, LLC | *[TBD]* |
+| ACS  | United Spinal Association | 102 Duane Road, Fort Totten NY 11359 |
+| Advocara | Advocara Innovation LLC | 11222 Fairway Drive, Reston, VA |
 
 ---
 
 ## 2. Background and objectives
 
-Accessibility Services ("ACS") is replacing its public marketing website. This SOW covers the work to replatform and refresh the public experience and content: how the site looks, reads, and guides visitors, and the underlying implementation so it can be maintained and extended over time.
+Accessibility Services ("ACS") is replacing its public marketing website. This Agreement governs the work to replatform and refresh the public experience and content: how the site looks, reads, and guides visitors, and the underlying implementation so it can be maintained and extended over time.
 
 Objectives:
 
@@ -24,7 +24,7 @@ Objectives:
 - Improve marketing effectiveness: trust-oriented elements where appropriate, clear calls to action, plain language, and navigation paths that help different visitor types reach the right services and information about them quickly.  
 - Site structure that is compatible with a full-featured third-party training offering (registration, payment, online content, calendaring, issue completion certificates) when ACS chooses one. Note that the plan is to incorporate a training or LMS system, not build one in this effort. 
 - Include working email contact forms that reach ACS-designated recipients.  
-- Convert all existing blog content. Later, an external, less-technical means for adding blog content may be added in a future SOW, but this SOW does not include a blogging platform. Blog updates will be made manually for the time being.
+- Convert all existing blog content. Later, an external, less-technical means for adding blog content may be added under a separate agreement, but this Agreement does not include a blogging platform. Blog updates will be made manually for the time being.
 - Add new copy, testimonials, statistics, and related wording across the site, delivered in phased page work as described in Sections 3 and 5. New copy or wording will come from ACS and be incorporated, formatted and included by Advocara.
 
 Phased delivery, fees, and exclusions follow Sections 3–5 and Section 4.
@@ -35,18 +35,17 @@ Phased delivery, fees, and exclusions follow Sections 3–5 and Section 4.
 
 Advocara will perform the following:
 
-1. Phase I — Convert the site to the new technical foundation and complete the foundational work described in Section 5 (Phase I).  
-2. Phase II — Add basic new content supplied by ACS, including the items listed in Section 5 (Phase II). This material was not on the previous public site in usable form, so it was not part of the content brought forward from the old site.  
-3. Phase III — Review and update content on five major pages with input supplied by ACS, as agreed at kickoff.  
-4. Phase IV — Review and update the three remaining major pages after Phase III, with input supplied by ACS, and provide the handoff described in Section 5 (Phase IV). Note that we anticipate 9 major page areas. 
+1. Phase I — Convert the site to the new technical foundation, add critical new content supplied by ACS, and complete the work described in Section 5 (Phase I). Much of the new content was not on the previous public site in usable form, so it was not part of the content brought forward from the old site.  
+2. Phase II — Review and update content on five major pages with input supplied by ACS, as agreed at kickoff.  
+3. Phase III — Review and update the three remaining major pages after Phase II, with input supplied by ACS, and provide the handoff described in Section 5 (Phase III). Note that we anticipate 9 major page areas total (five in Phase II and three in Phase III). 
 
-As work items are identified organically through insights and brainstorming through phases I - IV above, they will be tracked and prioritized in a future work item list, but new work items outside this scope will require a new SOW or modification to perform under a separate contract.
+As work items are identified organically through insights and brainstorming through phases I–III above, they will be tracked and prioritized in a future work item list, but new work items outside this scope will require a signed amendment to this Agreement or a separate agreement.
 
 ---
 
 ## 4. Out of scope 
 
-The following are not included in the fees for Phases I–IV unless added in a signed change order:
+The following are not included in the fees for Phases I–III unless added in a signed change order:
 
 - Full site search.  
 - Integration of 3rd party Training or Learning Management System (LMS).
@@ -59,62 +58,51 @@ The following are not included in the fees for Phases I–IV unless added in a s
 
 ## 5. Phases — deliverables 
 
-### Phase I — New technical foundation
+### Phase I — Technical foundation and new content
 
 Advocara will:
 
-- Complete conversion to a next.js/typescript/HTML foundation
+- Complete conversion to a next.js/typescript/HTML foundation.  
 - Connect the contact form so submissions reach the inboxes ACS specifies, once ACS provides what is needed on its side for email delivery.  
 - Run a working session (or short series) on positioning: who the site is for, how ACS differs from others, relationship to United Spinal, and how California and Texas offices should be presented; produce a short written summary of decisions that drive copy.  
 - Implement agreed technical and user-experience fixes that do not depend on new copy from ACS.  
 - Apply the first round of copy and layout changes on the home page and consulting overview (or another subset agreed in writing), consistent with the written summary—not a rewrite of the entire site.  
-
-ACS will:
-- provide mail access to allow the web form to send emails
-
-Acceptance: ACS receives a preview or staging environment showing the contact path working (or a written description of any blocker that depends solely on ACS). No critical user paths in scope are left knowingly broken. Placeholders may remain where ACS has not yet supplied Phase II content; Phase I does not require the site to be ready for public launch, as it will be missing key information.
-
----
-
-### Phase II — New content from ACS
-
-Advocara will add critical new information supplied by ACS. This does not include a full extension effort of all major sub-pages (likely nine of them) but should include all the front page and must have information to forma coherent site.
-
-These information areas include:
-
-- Client testimonials (synthetic, or with required permission obtained).  
-- Accurate firm statistics (such as years in practice, project counts, geographic reach, team size) for public display.  
-- Phone number for use in the header and calls to action if phone contact is desired.  
-- California and Texas point person contact information (beyond what was already available from the prior site).  
-- Texas RAS: regulatory detail, links to required forms as applicable, and fee presentation for smaller projects if ACS chooses to publish fees.  
-- CASp: California regulatory detail, explanation of qualified-defendant services as ACS approves, and fee presentation for smaller projects if ACS chooses to publish fees.  
-- Team member office locations and professional credentials, as ACS provides them.
-- Projedt/client list, with descriptive text
-- Google ad tracking or a similar mechanism will be included. ACS may need to supply a google account token or key to link the ad tracking to ACS accounts.
+- Add critical new information supplied by ACS. This does not include a full extension effort of all major sub-pages (nine anticipated in Phases II and III) but should include the front page and must-have information to form a coherent site. Information areas include:
+  - Client testimonials (synthetic, or with required permission obtained).  
+  - Accurate firm statistics (such as years in practice, project counts, geographic reach, team size) for public display.  
+  - Phone number for use in the header and calls to action if phone contact is desired.  
+  - California and Texas point person contact information (beyond what was already available from the prior site).  
+  - Texas RAS: regulatory detail, links to required forms as applicable, and fee presentation for smaller projects if ACS chooses to publish fees.  
+  - CASp: California regulatory detail, explanation of qualified-defendant services as ACS approves, and fee presentation for smaller projects if ACS chooses to publish fees.  
+  - Team member office locations and professional credentials, as ACS provides them.  
+  - Project/client list, with descriptive text.  
+  - Google ad tracking or a similar mechanism. ACS may need to supply a Google account token or key to link ad tracking to ACS accounts.
 
 If ACS also supplies optional material in the same period (for example, narrative descriptions for selected projects), Advocara will integrate it within reasonable effort.
 
 Advocara will perform a quality pass on affected areas: links, layout on common devices, and basic accessibility checks on what was changed.
 
-Acceptance: Front page key information updated. Remaining sub-page items are listed for later work. The site will be in a state where ACS may publish when it wishes; however ACS may choose to hold off until all sub-pages are complete.
+ACS will provide mail access to allow the web form to send emails.
+
+Acceptance: ACS receives a preview or staging environment showing the contact path working (or a written description of any blocker that depends solely on ACS). No critical user paths in scope are left knowingly broken. Front page key information is updated. Remaining sub-page items are listed for Phase II work. The site may be publishable when ACS wishes; ACS may choose to hold off until Phases II and III sub-pages are complete.
 
 ---
 
-### Phase III — Five major page updates
+### Phase II — Five major page updates
 
 ACS will review content on five major pages (for example: landing with general consulting overview, Texas RAS, CASp, about, and project/client list — final five by mutual agreement). Advocara will update the site with all new text provided, and perform rewording, formatting or other changes as needed to ensure a professional look and feel. Updates will be driven by written input from ACS. For each page, Advocara will adjust headings and page metadata for search as agreed and confirm calls to action and contact links behave as intended.
 
-Acceptance: Written sign-off on the four pages, or a written list of deferrals moved to Phase IV or a shared work list.
+Acceptance: Written sign-off on the five pages, or a written list of deferrals moved to Phase III or a shared work list.
 
 ---
 
-### Phase IV — Three remaining major pages and handoff
+### Phase III — Three remaining major pages and handoff
 
-Advocara will review and update content on the five major pages not covered in Phase III, as identified in writing before Phase III closes (for example: training, technical assistance, legal defense/expert witness — exact three by mutual agreement). For training pages, layout and text may include links to an external scheduling or learning system; building registration or payment on this site requires a change order.
+Advocara will review and update content on the three major pages not covered in Phase II, as identified in writing before Phase II closes (for example: training, technical assistance, legal defense/expert witness — exact three by mutual agreement). For training pages, layout and text may include links to an external scheduling or learning system; building registration or payment on this site requires a change order.
 
-Advocara will deliver a short handoff note describing how ACS can request ongoing text and content updates under any future arrangement, without implying that a content management system is included unless separately scoped.
+Advocara will deliver a short handoff note describing how ACS can request ongoing text and content updates after completion of the services under this Agreement, without implying that a content management system is included unless added in a signed amendment or separate agreement.
 
-Acceptance: Written sign-off on those five pages and delivery of the handoff note.
+Acceptance: Written sign-off on those three pages and delivery of the handoff note.
 
 ---
 
@@ -144,31 +132,30 @@ Advocara will:
 
 ## 8. Reviews, acceptance, and revisions
 
-- Each phase ends with written acceptance, or a written punch list; Advocara addresses punch-list items within the time frame in the master agreement or within [TBD] business days if the agreement is silent. Punch list items must be a list of incorrect, missing or substantially low-quality issues or gaps, and not new features or ideas outside the scope of this SOW.
-- One round of substantive revision per major page (of the nine anticipated major pages) are included; further, incremental and iterative rounds are out of scope for this SOW, and may be contracted separately.
+- Each phase ends with written acceptance, or a written punch list; Advocara addresses punch-list items within 15 business days of receiving the punch list. Punch list items must be a list of incorrect, missing or substantially low-quality issues or gaps, and not new features, refinements, or ideas outside the scope of this Agreement.
+- One round of substantive revision per major page (of the nine anticipated major pages) are included; further, incremental and iterative rounds are out of scope under this Agreement and require a signed amendment or separate agreement.
 
 ---
 
 ## 9. Fees and payment schedule
 
-Total cost proposed is $5,000 for this SOW. 
+Total cost will be $5,000 for this work. 
 
-Proposed milestone payments are:
+Agreed milestone payments are:
 
 | Milestone | Percent of fee | Amount |
 |-----------|---------------------------|-----|
-| Project Kickoff | 25% | 1,250 |
-| Phase I acceptance | 25% | 1,250 |
-| Phase II acceptance | 15% | 750 |
-| Phase III acceptance | 15% | 750 |
-| Phase IV final acceptance | 20% | 1,000 |
+| Project Kickoff | 30% | 1,500 |
+| Phase I acceptance (technical foundation and new content) | 35% | 1,750 |
+| Phase II acceptance (five major pages) | 15% | 750 |
+| Phase III final acceptance (three major pages) | 20% | 1,000 |
 
 ---
 
 ## 10. Schedule and dependencies
 
-- Advocara will strive to complete Phase I in two weeks.
-- Advocara will strive to complete each other phase one week after required ACS input is recieved.
+- Advocara will strive to complete Phase I in two to three weeks, depending on ACS content delivery for new material.  
+- Advocara will strive to complete each of Phases II and III one week after required ACS input is received.
 - ACS will strive to supply required information at the rate of 1-2 weeks per major page area.
 
 ---
@@ -203,14 +190,13 @@ If Advocara terminates in the middle of a phase, no payment will be due for that
 
 ---
 
-## 16. Signatures
+## 15. Signatures
 
 The parties intend to be bound upon execution below.
 
 
 
-Accessibility Services (ACS)
-
+United Spinal Association
 
 
 Signature: _________________________________________________  
@@ -223,7 +209,7 @@ Date: _________________________________________________
 
 
 
-Advocara Innovation, LLC
+Advocara Innovation LLC
 
 
 
