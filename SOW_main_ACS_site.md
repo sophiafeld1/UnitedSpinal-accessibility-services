@@ -8,21 +8,21 @@ Document status: Draft for legal and commercial review.
 
 | Role | Entity | Address / contact |
 |------|--------|-------------------|
-| ACS | Accessibility Services  — *[legal entity TBD]* | *[TBD]* |
+| ACS | Accessibility Services — United Spinal Association | 102 Duane Road, Fort Totten NY 11359 |
 | Advocara | Advocara Innovation, LLC | *[TBD]* |
 
 ---
 
 ## 2. Background and objectives
 
-ACS is replacing its public marketing website. This SOW covers the work to replatform and refresh the public experience: how the site looks, reads, and guides visitors, and the underlying implementation so it can be maintained and extended over time.
+Accessibility Services ("ACS") is replacing its public marketing website. This SOW covers the work to replatform and refresh the public experience and content: how the site looks, reads, and guides visitors, and the underlying implementation so it can be maintained and extended over time.
 
 Objectives:
 
 - Present a modern, professional experience comparable to peer firms in architecture and construction that hire or refer work to ACS.  
-- Replace legacy implementation with a modern technical foundation that is straightforward to update using AI tools as content and offers evolve.  
-- Improve marketing effectiveness: trust-oriented elements where appropriate, clear calls to action, plain language, and navigation paths that help different visitor types reach the right material quickly.  
-- Site structure that is compatible with a full-featured third-party training offering (registration, payment, online content, calendaring) when ACS chooses one. Note that the plan is to incorporate a training or LMS system, not build one in this effort. 
+- Replace legacy implementation with a modern technical foundation that is straightforward with the ability to update using AI tools as content and offers evolve.  
+- Improve marketing effectiveness: trust-oriented elements where appropriate, clear calls to action, plain language, and navigation paths that help different visitor types reach the right services and information about them quickly.  
+- Site structure that is compatible with a full-featured third-party training offering (registration, payment, online content, calendaring, issue completion certificates) when ACS chooses one. Note that the plan is to incorporate a training or LMS system, not build one in this effort. 
 - Include working email contact forms that reach ACS-designated recipients.  
 - Convert all existing blog content. Later, an external, less-technical means for adding blog content may be added in a future SOW, but this SOW does not include a blogging platform. Blog updates will be made manually for the time being.
 - Add new copy, testimonials, statistics, and related wording across the site, delivered in phased page work as described in Sections 3 and 5. New copy or wording will come from ACS and be incorporated, formatted and included by Advocara.
@@ -37,8 +37,8 @@ Advocara will perform the following:
 
 1. Phase I — Convert the site to the new technical foundation and complete the foundational work described in Section 5 (Phase I).  
 2. Phase II — Add basic new content supplied by ACS, including the items listed in Section 5 (Phase II). This material was not on the previous public site in usable form, so it was not part of the content brought forward from the old site.  
-3. Phase III — Review and update content on four major pages with input supplied by ACS, as agreed at kickoff.  
-4. Phase IV — Review and update the five remaining major pages after Phase III, with input supplied by ACS, and provide the handoff described in Section 5 (Phase IV). Note that we anticipate 9 major page areas. 
+3. Phase III — Review and update content on five major pages with input supplied by ACS, as agreed at kickoff.  
+4. Phase IV — Review and update the three remaining major pages after Phase III, with input supplied by ACS, and provide the handoff described in Section 5 (Phase IV). Note that we anticipate 9 major page areas. 
 
 As work items are identified organically through insights and brainstorming through phases I - IV above, they will be tracked and prioritized in a future work item list, but new work items outside this scope will require a new SOW or modification to perform under a separate contract.
 
@@ -85,10 +85,11 @@ These information areas include:
 - Client testimonials (synthetic, or with required permission obtained).  
 - Accurate firm statistics (such as years in practice, project counts, geographic reach, team size) for public display.  
 - Phone number for use in the header and calls to action if phone contact is desired.  
-- California and Texas office addresses and contact details (beyond what was available from the prior site).  
+- California and Texas point person contact information (beyond what was already available from the prior site).  
 - Texas RAS: regulatory detail, links to required forms as applicable, and fee presentation for smaller projects if ACS chooses to publish fees.  
 - CASp: California regulatory detail, explanation of qualified-defendant services as ACS approves, and fee presentation for smaller projects if ACS chooses to publish fees.  
 - Team member office locations and professional credentials, as ACS provides them.
+- Projedt/client list, with descriptive text
 - Google ad tracking or a similar mechanism will be included. ACS may need to supply a google account token or key to link the ad tracking to ACS accounts.
 
 If ACS also supplies optional material in the same period (for example, narrative descriptions for selected projects), Advocara will integrate it within reasonable effort.
@@ -99,17 +100,17 @@ Acceptance: Front page key information updated. Remaining sub-page items are lis
 
 ---
 
-### Phase III — Four major page updates
+### Phase III — Five major page updates
 
-ACS will review content on four major pages (for example: home, consulting overview, Texas RAS, CASp—final four by mutual agreement). Advocara will update the site with all new text provided, and perform rewording, formatting or other changes as needed to ensure a professional look and feel. Updates will be driven by written input from ACS. For each page, Advocara will adjust headings and page metadata for search as agreed and confirm calls to action and contact links behave as intended.
+ACS will review content on five major pages (for example: landing with general consulting overview, Texas RAS, CASp, about, and project/client list — final five by mutual agreement). Advocara will update the site with all new text provided, and perform rewording, formatting or other changes as needed to ensure a professional look and feel. Updates will be driven by written input from ACS. For each page, Advocara will adjust headings and page metadata for search as agreed and confirm calls to action and contact links behave as intended.
 
 Acceptance: Written sign-off on the four pages, or a written list of deferrals moved to Phase IV or a shared work list.
 
 ---
 
-### Phase IV — Five remaining major pages and handoff
+### Phase IV — Three remaining major pages and handoff
 
-Advocara will review and update content on the five major pages not covered in Phase III, as identified in writing before Phase III closes (for example: training, projects, about, technical assistance, legal defense or expert witness—exact five by mutual agreement). For training pages, layout and text may include links to an external scheduling or learning system; building registration or payment on this site requires a change order.
+Advocara will review and update content on the five major pages not covered in Phase III, as identified in writing before Phase III closes (for example: training, technical assistance, legal defense/expert witness — exact three by mutual agreement). For training pages, layout and text may include links to an external scheduling or learning system; building registration or payment on this site requires a change order.
 
 Advocara will deliver a short handoff note describing how ACS can request ongoing text and content updates under any future arrangement, without implying that a content management system is included unless separately scoped.
 
