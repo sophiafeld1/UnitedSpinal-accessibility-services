@@ -1,6 +1,6 @@
 # Professional Services Agreement — ACS Public Website
 
-Document status: Draft for legal and commercial review. 
+Date: August 12, 2026
 
 ---
 
@@ -24,7 +24,7 @@ Objectives:
 - Improve marketing effectiveness: trust-oriented elements where appropriate, clear calls to action, plain language, and navigation paths that help different visitor types reach the right services and information about them quickly.  
 - Site structure that is compatible with a full-featured third-party training offering (registration, payment, online content, calendaring, issue completion certificates) when ACS chooses one. Note that the plan is to incorporate a training or LMS system, not build one in this effort. 
 - Include working email contact forms that reach ACS-designated recipients.  
-- Convert all existing blog content. Later, an external, less-technical means for adding blog content may be added under a separate agreement, but this Agreement does not include a blogging platform. Blog updates will be made manually for the time being.
+- Convert all existing blog content. Later, an external, less-technical means for adding blog content may be added under a separate agreement, but this Agreement does not include a blogging platform. Blog updates will be made manually.
 - Add new copy, testimonials, statistics, and related wording across the site, delivered in phased page work as described in Sections 3 and 5. New copy or wording will come from ACS and be incorporated, formatted and included by Advocara.
 
 Phased delivery, fees, and exclusions follow Sections 3–5 and Section 4.
