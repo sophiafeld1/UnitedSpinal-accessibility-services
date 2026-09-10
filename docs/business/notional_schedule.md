@@ -2,13 +2,13 @@
 
 **Purpose:** Working plan to support a **statement of work (SOW)** and **contract**. Dates are **notional** until agreed with ACS; this document maps **what is already built**, **what ACS must supply**, and **suggested phase boundaries** so work can be funded and delivered incrementally—not as a single big bang.
 
-**Sources:** `PROGRESS.md` (last updated 2026-02-18), `requirements/usp_needs_notes.md` (call notes), `ACS_priorities.md` (prioritized page/feature list).
+**Sources:** `docs/plan/PROGRESS.md` (last updated 2026-02-18), `docs/requirements/usp_needs_notes.md` (call notes), `docs/requirements/ACS_priorities.md` (prioritized page/feature list).
 
 ---
 
 ## 1. Baseline (already in code)
 
-Per `PROGRESS.md`, the following are largely **complete in the repository**:
+Per `docs/plan/PROGRESS.md`, the following are largely **complete in the repository**:
 
 - Data layer (`/src/data/`), shared components, theme tokens, dynamic service/blog routes  
 - Homepage redesign (hero, StatBar, testimonials section, blog teaser, CTA band)  
@@ -31,7 +31,7 @@ These stay on a **backlog** for later SOW amendments.
 
 ## 2. Priority framework (for SOW language)
 
-Priorities tie **launch risk** and **trust/credibility** to `PROGRESS.md` “Content Needed From ACS” and **Known Issues**. **IDs are stable** (no priority baked in); change rank in the **Priority** column or in the shared tracker without renaming rows.
+Priorities tie **launch risk** and **trust/credibility** to `docs/plan/PROGRESS.md` “Content Needed From ACS” and **Known Issues**. **IDs are stable** (no priority baked in); change rank in the **Priority** column or in the shared tracker without renaming rows.
 
 **Priority meanings (default):**
 
@@ -57,7 +57,7 @@ Priorities tie **launch risk** and **trust/credibility** to `PROGRESS.md` “Con
 | C-04 | P0 | TX RAS: TDLR links, regulatory detail, fee schedule (if promised) | ACS | ACS priorities: forms + fee schedule for smaller projects |
 | C-05 | P0 | CASp: qualified-defendant explanation, CA regulatory detail, fee schedule (if promised) | ACS | Aligns with priorities + call notes (SEO terms) |
 | C-06 | P0 | CA + TX office addresses/contact lines (not only NY HQ) | ACS | Call notes + priorities emphasize state offices |
-| R-01 | P0 | Team review: tone, positioning, industry focus (arch/contract vs medical/insurance) | Joint | `requirements/usp_needs_notes.md` — **thematic**; may drive copy/layout on key pages |
+| R-01 | P0 | Team review: tone, positioning, industry focus (arch/contract vs medical/insurance) | Joint | `docs/requirements/usp_needs_notes.md` — **thematic**; may drive copy/layout on key pages |
 | C-07 | P1 | Project write-ups (UN, Highmark Stadium, San Diego Zoo, Marriott, Urban Edge) | ACS | |
 | C-08 | P1 | Team credentials complete; office location per member | ACS | Many creds missing; locations default NY |
 | C-09 | P1 | Service imagery (TX RAS, CASp, Inspection, TA, Universal Design) | ACS / Vendor | Better assets per ACS priorities aesthetic |
@@ -136,7 +136,7 @@ Assumptions:
 **Suggested first four (adjust with ACS):**
 
 1. Homepage (messaging, visuals, service grid alignment with priorities)  
-2. Consulting (+ plan review / inspection themes per `ACS_priorities.md`)  
+2. Consulting (+ plan review / inspection themes per `docs/requirements/ACS_priorities.md`)  
 3. TX RAS  
 4. CASp  
 
@@ -191,7 +191,7 @@ Assumptions:
 
 ## 6. Next steps toward SOW
 
-Draft statement of work (repository root): `SOW_main_ACS_site.md`.
+Draft statement of work: `docs/business/SOW_main_ACS_site.md`.
 
 1. ACS confirms **P0/P1** list and **which “major pages”** belong in Phases III vs IV.  
 2. Fix **Phase I workshop** date and **first content due date**.  

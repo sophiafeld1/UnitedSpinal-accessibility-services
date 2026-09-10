@@ -2,13 +2,13 @@
 
 ## Context
 
-The current Next.js site replicates the existing WordPress site but lacks the conversion-focused design, expanded service coverage, and lead generation infrastructure that competitors demonstrate. The ACS Webpage Priorities PDF identifies significant content gaps (TX RAS, CASp, inspection services, training expansion), while competitive analysis of ~12 firms reveals ACS is behind on testimonials, quantified stats, CTAs, fee schedules, and pain-point messaging. Stakeholder input (see `usp_needs_notes.md`) adds: positioning must reflect arch/construction industry (not medical/insurance); clarify ACS as for-profit subsidiary of United Spinal (avoid confusion with the nonprofit); and emphasize that ACS works with architects, contractors, and developers—not with people with disabilities (that’s USp). Stakeholders also note that competitor and prospect sites feel more **professional**, with **moving images and video**, **crisp graphics**, and **dynamic menus** (vs. flat/static). This plan addresses priorities, messaging, and that look-and-feel bar.
+The current Next.js site replicates the existing WordPress site but lacks the conversion-focused design, expanded service coverage, and lead generation infrastructure that competitors demonstrate. The ACS Webpage Priorities PDF identifies significant content gaps (TX RAS, CASp, inspection services, training expansion), while competitive analysis of ~12 firms reveals ACS is behind on testimonials, quantified stats, CTAs, fee schedules, and pain-point messaging. Stakeholder input (see `docs/requirements/usp_needs_notes.md`) adds: positioning must reflect arch/construction industry (not medical/insurance); clarify ACS as for-profit subsidiary of United Spinal (avoid confusion with the nonprofit); and emphasize that ACS works with architects, contractors, and developers—not with people with disabilities (that’s USp). Stakeholders also note that competitor and prospect sites feel more **professional**, with **moving images and video**, **crisp graphics**, and **dynamic menus** (vs. flat/static). This plan addresses priorities, messaging, and that look-and-feel bar.
 
 ---
 
 ## Look & feel (cross-phase)
 
-Close the gap vs. competitor "slickness" (see `usp_needs_notes.md`):
+Close the gap vs. competitor "slickness" (see `docs/requirements/usp_needs_notes.md`):
 
 | Gap | Plan |
 |-----|------|
