@@ -80,13 +80,13 @@ export default function Home() {
               <div className="flex flex-wrap gap-4">
                 <Link
                   href="/contact"
-                  className="inline-block bg-accent text-white px-8 py-3 font-semibold rounded hover:bg-accent-hover transition-colors"
+                  className="hero-cta inline-block bg-accent text-white px-8 py-3 font-semibold rounded hover:bg-accent-hover"
                 >
                   Free Consultation
                 </Link>
                 <Link
                   href="/consulting"
-                  className="inline-block border-2 border-white text-white px-8 py-3 font-semibold rounded hover:bg-white hover:text-accent transition-colors"
+                  className="hero-cta inline-block border-2 border-white text-white px-8 py-3 font-semibold rounded hover:bg-white hover:text-accent"
                 >
                   View Services
                 </Link>

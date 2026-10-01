@@ -45,6 +45,30 @@ html {
   background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.55));
 }
 
+/* Hero CTA bounce on hover */
+@keyframes hero-cta-bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  35% {
+    transform: translateY(-7px);
+  }
+  55% {
+    transform: translateY(-2px);
+  }
+  75% {
+    transform: translateY(-4px);
+  }
+}
+
+.hero-cta {
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.hero-cta:hover {
+  animation: hero-cta-bounce 0.45s ease;
+}
+
 /* Service card hover effect */
 .service-card {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
