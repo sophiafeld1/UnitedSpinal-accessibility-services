@@ -45,28 +45,37 @@ html {
   background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.55));
 }
 
-/* Hero CTA bounce on hover */
-@keyframes hero-cta-bounce {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  35% {
-    transform: translateY(-7px);
-  }
-  55% {
-    transform: translateY(-2px);
-  }
-  75% {
-    transform: translateY(-4px);
-  }
-}
-
+/* Hero CTA subtle lift on hover */
 .hero-cta {
-  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
 }
 
 .hero-cta:hover {
-  animation: hero-cta-bounce 0.45s ease;
+  transform: translateY(-3px);
+}
+
+/* Scroll reveal — starts below viewport, fades in on scroll */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(36px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.scroll-reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }
 
 /* Service card hover effect */

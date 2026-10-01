@@ -10,6 +10,7 @@ import CTASection from "@/components/CTASection";
 import SectionHeading from "@/components/SectionHeading";
 import { testimonials } from "@/data/testimonials";
 import TestimonialCard from "@/components/TestimonialCard";
+import ScrollReveal from "@/components/ScrollReveal";
 
 const aboutItems = [
   {
@@ -115,44 +116,46 @@ export default function Home() {
       </section>
 
       {/* About Us / Why Choose ACS Section */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-white overflow-hidden">
         <Container>
-          <SectionHeading
-            title="About Us"
-            subtitle="Accessibility Services is proud to be recognized on the Forbes Accessibility 100 List for our commitment to inclusive design and accessibility. We're a Registered Provider for the International Code Council and an American Institute of Architects Approved Provider of Continuing Education"
-          />
+          <ScrollReveal>
+            <SectionHeading
+              title="About Us"
+              subtitle="Accessibility Services is proud to be recognized on the Forbes Accessibility 100 List for our commitment to inclusive design and accessibility. We're a Registered Provider for the International Code Council and an American Institute of Architects Approved Provider of Continuing Education"
+            />
 
-          <div className="flex flex-col lg:flex-row gap-8">
-            <div className="lg:w-2/3">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                {aboutItems.map((item) => (
-                  <div
-                    key={item.title}
-                    className="about-box p-6 rounded-lg border border-gray-100"
-                  >
-                    <div className="flex items-center gap-4 mb-3">
-                      <span className="text-accent about-icon">
-                        {item.icon}
-                      </span>
-                      <h5 className="font-semibold text-sm">{item.title}</h5>
+            <div className="flex flex-col lg:flex-row gap-8">
+              <div className="lg:w-2/3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  {aboutItems.map((item) => (
+                    <div
+                      key={item.title}
+                      className="about-box p-6 rounded-lg border border-gray-100"
+                    >
+                      <div className="flex items-center gap-4 mb-3">
+                        <span className="text-accent about-icon">
+                          {item.icon}
+                        </span>
+                        <h5 className="font-semibold text-sm">{item.title}</h5>
+                      </div>
+                      <p className="text-sm text-gray-600 leading-relaxed">
+                        {item.text}
+                      </p>
                     </div>
-                    <p className="text-sm text-gray-600 leading-relaxed">
-                      {item.text}
-                    </p>
-                  </div>
-                ))}
+                  ))}
+                </div>
+              </div>
+              <div className="lg:w-1/3">
+                <Image
+                  src="/images/about-image.jpg"
+                  alt="Accessibility consultation"
+                  width={400}
+                  height={500}
+                  className="rounded-lg w-full h-auto object-cover"
+                />
               </div>
             </div>
-            <div className="lg:w-1/3">
-              <Image
-                src="/images/about-image.jpg"
-                alt="Accessibility consultation"
-                width={400}
-                height={500}
-                className="rounded-lg w-full h-auto object-cover"
-              />
-            </div>
-          </div>
+          </ScrollReveal>
         </Container>
       </section>
 
