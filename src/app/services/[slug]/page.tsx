@@ -4,7 +4,6 @@ import { notFound } from "next/navigation";
 import { services, getServiceBySlug, getRelatedServices } from "@/data/services";
 import { getTestimonialsByService } from "@/data/testimonials";
 import { getFAQsByService } from "@/data/faqs";
-import PageHeader from "@/components/PageHeader";
 import Container from "@/components/Container";
 import CTASection from "@/components/CTASection";
 import TestimonialCard from "@/components/TestimonialCard";
@@ -44,20 +43,33 @@ export default async function ServicePage({ params }: ServicePageProps) {
 
   return (
     <>
-      <PageHeader title={service.title} />
+      <section className="relative h-64 sm:h-72 md:h-80 overflow-hidden">
+        <Image
+          src={service.image}
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center"
+        />
+        <div className="absolute inset-0 bg-black/40" />
+        <div className="absolute inset-0 flex items-center justify-center px-6">
+          <div className="text-center">
+            <h1 className="text-3xl md:text-4xl font-bold text-white mb-3">
+              {service.title}
+            </h1>
+            <div
+              className="h-1 w-14 bg-accent rounded-full mx-auto"
+              aria-hidden="true"
+            />
+          </div>
+        </div>
+      </section>
 
       {/* Main Content */}
       <section className="py-16">
         <Container>
           <div className="max-w-4xl mx-auto">
-            <Image
-              src={service.image}
-              alt={service.title}
-              width={1000}
-              height={595}
-              className="w-full h-auto rounded-lg mb-8"
-            />
-
             {/* Pain-point headline */}
             <p className="text-xl text-accent font-medium italic mb-6">
               {service.painPointHeadline}
