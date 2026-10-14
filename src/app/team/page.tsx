@@ -17,7 +17,7 @@ export default function TeamPage() {
         subtitle="Accessibility Services is exclusively devoted to making our built environment accessible to people with disabilities. We assist property owners and designers with federal and state accessibility requirements including ADA, Fair Housing, Section 504, and state/local codes."
       />
 
-      <section className="py-16">
+      <section className="bg-[#ececec] py-16">
         <Container>
           <TeamFilter />
         </Container>

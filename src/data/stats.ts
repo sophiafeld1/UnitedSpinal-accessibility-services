@@ -1,8 +1,8 @@
 import type { Stat } from "./types";
 
 export const stats: Stat[] = [
-  { value: "50+", label: "Years Experience" },
-  { value: "1,000+", label: "Projects Completed" },
-  { value: "48", label: "States Served" },
-  { value: "11", label: "Certified Specialists" },
+  { value: "1988", label: "In Practice Since" },
+  { value: "200+", label: "Active Clients" },
+  { value: "50", label: "States Served" },
+  { value: "13", label: "Team Members" },
 ];

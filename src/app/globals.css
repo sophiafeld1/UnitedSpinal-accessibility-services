@@ -1,16 +1,19 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-primary: #1a1a1a;
-  --color-primary-light: #333333;
-  --color-accent: #dd3333;
-  --color-accent-hover: #bb2222;
-  --color-text: #111111;
-  --color-text-light: #666666;
-  --color-heading: #000000;
-  --color-bg-dark: #141414;
-  --color-bg-gray: #333333;
-  --color-bg-light: #f8f8f8;
+  --color-primary: #ffffff;
+  --color-primary-light: #f5f5f5;
+  /* United Spinal orange (sampled from logo #f47323) */
+  --color-accent: #f47323;
+  --color-accent-hover: #d9621a;
+  --color-accent-light: #fff4ec;
+  --color-accent-soft: #fce4d0;
+  --color-text: #1a1a1a;
+  --color-text-light: #555555;
+  --color-heading: #111111;
+  --color-bg-dark: #ffffff;
+  --color-bg-gray: #f3f4f6;
+  --color-bg-light: #fafafa;
   --font-sans: var(--font-source-sans), "Source Sans 3", "PT Sans", Arial, Helvetica, sans-serif;
   --font-heading: var(--font-poppins), "Poppins", "PT Sans", sans-serif;
   --font-condensed: var(--font-condensed), "Oswald", "Arial Narrow", sans-serif;
@@ -21,6 +24,7 @@
     font-family: var(--font-sans);
     color: var(--color-text);
     line-height: 1.6;
+    background-color: #ffffff;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -29,9 +33,10 @@
   }
 }
 
-/* Smooth scrolling */
+/* Smooth scrolling + slight base size bump for readability */
 html {
   scroll-behavior: smooth;
+  font-size: 106.25%; /* 17px at default browser settings */
 }
 
 /* Navigation active state */
@@ -92,7 +97,7 @@ html {
   transition: all 0.3s ease;
 }
 .about-box:hover {
-  background-color: var(--color-bg-light);
+  background-color: var(--color-accent-light);
 }
 .about-box:hover .about-icon {
   color: var(--color-accent);

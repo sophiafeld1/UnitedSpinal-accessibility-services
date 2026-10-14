@@ -10,6 +10,9 @@ const colors: Record<string, string> = {
   MCP: "bg-amber-100 text-amber-800",
   "NYS-CEO": "bg-orange-100 text-orange-800",
   RAS: "bg-teal-100 text-teal-800",
+  RA: "bg-blue-100 text-blue-800",
+  ADAC: "bg-rose-100 text-rose-800",
+  "ICC-PE": "bg-purple-100 text-purple-800",
 };
 
 export default function CredentialBadge({ credential }: CredentialBadgeProps) {

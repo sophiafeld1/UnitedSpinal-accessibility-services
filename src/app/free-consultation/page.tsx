@@ -24,12 +24,12 @@ export default function FreeConsultationPage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-bg-dark py-16">
+      <section className="bg-bg-light py-16 border-b border-gray-200">
         <Container className="text-center">
-          <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">
+          <h1 className="text-3xl md:text-4xl font-bold text-heading mb-4">
             Get Your Free Accessibility Consultation
           </h1>
-          <p className="text-gray-300 max-w-2xl mx-auto text-lg mb-8">
+          <p className="text-gray-600 max-w-2xl mx-auto text-lg mb-8">
             Tell us about your project and our team of certified specialists
             will provide a personalized assessment at no cost.
           </p>
@@ -39,7 +39,7 @@ export default function FreeConsultationPage() {
             {stats.map((stat) => (
               <div key={stat.label} className="text-center">
                 <p className="text-2xl font-bold text-accent">{stat.value}</p>
-                <p className="text-xs text-gray-400 uppercase tracking-wider">
+                <p className="text-xs text-gray-600 uppercase tracking-wider">
                   {stat.label}
                 </p>
               </div>

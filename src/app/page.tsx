@@ -101,14 +101,14 @@ export default function Home() {
       <StatBar />
 
       {/* Services Section */}
-      <section className="bg-bg-gray py-12">
+      <section className="bg-white py-12">
         <Container>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {featuredServices.map((service) => (
               <ServiceCard
                 key={service.slug}
                 service={service}
-                variant="dark"
+                variant="light"
               />
             ))}
           </div>

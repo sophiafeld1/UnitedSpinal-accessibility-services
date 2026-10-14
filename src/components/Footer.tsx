@@ -24,12 +24,12 @@ export default function Footer() {
   return (
     <footer>
       {/* Main footer */}
-      <div className="bg-primary text-gray-300 py-12">
+      <div className="bg-accent-light text-gray-600 py-12 border-t border-accent-soft">
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {/* Column 1: About */}
             <div>
-              <h4 className="text-white font-bold text-lg mb-4">
+              <h4 className="text-heading font-bold text-lg mb-4">
                 Accessibility Services
               </h4>
               <p className="text-sm leading-relaxed mb-4">
@@ -38,7 +38,7 @@ export default function Footer() {
                 disabilities.
               </p>
               <p className="text-sm leading-relaxed">
-                <strong className="text-white">
+                <strong className="text-heading">
                   AIA/CES Approved Provider
                 </strong>{" "}
                 of Continuing Education &bull; ICC Registered Provider
@@ -47,13 +47,13 @@ export default function Footer() {
 
             {/* Column 2: Services */}
             <div>
-              <h4 className="text-white font-bold text-lg mb-4">Services</h4>
+              <h4 className="text-heading font-bold text-lg mb-4">Services</h4>
               <ul className="space-y-2">
                 {serviceLinks.map((link) => (
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className="text-sm hover:text-white transition-colors"
+                      className="text-sm hover:text-accent transition-colors"
                     >
                       {link.label}
                     </Link>
@@ -64,13 +64,13 @@ export default function Footer() {
 
             {/* Column 3: Company */}
             <div>
-              <h4 className="text-white font-bold text-lg mb-4">Company</h4>
+              <h4 className="text-heading font-bold text-lg mb-4">Company</h4>
               <ul className="space-y-2">
                 {companyLinks.map((link) => (
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className="text-sm hover:text-white transition-colors"
+                      className="text-sm hover:text-accent transition-colors"
                     >
                       {link.label}
                     </Link>
@@ -81,9 +81,11 @@ export default function Footer() {
 
             {/* Column 4: Contact */}
             <div>
-              <h4 className="text-white font-bold text-lg mb-4">Contact Us</h4>
+              <h4 className="text-heading font-bold text-lg mb-4">Contact Us</h4>
               <div className="space-y-3 text-sm">
                 <p>
+                  Headquarters: Queens, NY
+                  <br />
                   102 Duane Road
                   <br />
                   Fort Totten, NY 11359
@@ -91,7 +93,7 @@ export default function Footer() {
                 <p>
                   <a
                     href="mailto:info@accessibility-services.com"
-                    className="hover:text-white transition-colors"
+                    className="hover:text-accent transition-colors"
                   >
                     info@accessibility-services.com
                   </a>
@@ -100,13 +102,13 @@ export default function Footer() {
 
               {/* Accreditation badges */}
               <div className="flex flex-wrap gap-2 mt-4">
-                <span className="px-2 py-1 bg-white/10 rounded text-xs">
+                <span className="px-2 py-1 bg-white border border-gray-200 rounded text-xs text-gray-700">
                   AIA
                 </span>
-                <span className="px-2 py-1 bg-white/10 rounded text-xs">
+                <span className="px-2 py-1 bg-white border border-gray-200 rounded text-xs text-gray-700">
                   ICC
                 </span>
-                <span className="px-2 py-1 bg-white/10 rounded text-xs">
+                <span className="px-2 py-1 bg-white border border-gray-200 rounded text-xs text-gray-700">
                   United Spinal
                 </span>
               </div>
@@ -116,7 +118,7 @@ export default function Footer() {
       </div>
 
       {/* Copyright bar */}
-      <div className="bg-text text-gray-400 py-4">
+      <div className="bg-gray-100 text-gray-500 py-4 border-t border-gray-200">
         <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center text-sm gap-2">
           <p>
             &copy; {new Date().getFullYear()} Accessibility Services, a program
@@ -125,7 +127,7 @@ export default function Footer() {
               href="https://www.unitedspinal.org"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-300 hover:text-white transition-colors"
+              className="text-gray-600 hover:text-accent transition-colors"
             >
               United Spinal Association
             </Link>
@@ -151,7 +153,7 @@ function BackToTop() {
           window.scrollTo({ top: 0, behavior: "smooth" });
         }
       }}
-      className="fixed bottom-6 right-22 bg-bg-gray/80 text-white w-10 h-10 rounded-full shadow-lg hover:bg-bg-gray transition-colors flex items-center justify-center z-40"
+      className="fixed bottom-6 right-22 bg-white border border-gray-200 text-gray-700 w-10 h-10 rounded-full shadow-md hover:bg-gray-50 transition-colors flex items-center justify-center z-40"
       aria-label="Back to top"
     >
       <svg

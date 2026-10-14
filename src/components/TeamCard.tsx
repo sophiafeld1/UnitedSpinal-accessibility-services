@@ -1,45 +1,42 @@
 import Image from "next/image";
 import type { TeamMember } from "@/data/types";
-import CredentialBadge from "./CredentialBadge";
 
 interface TeamCardProps {
   member: TeamMember;
+  selected: boolean;
+  onSelect: () => void;
 }
 
-export default function TeamCard({ member }: TeamCardProps) {
+export default function TeamCard({ member, selected, onSelect }: TeamCardProps) {
   return (
-    <div className="team-card bg-white rounded-lg overflow-hidden shadow-sm border border-gray-100">
-      <div className="relative h-72 bg-gray-100">
-        <Image
-          src={member.image}
-          alt={member.name}
-          fill
-          className="object-cover object-top"
-        />
+    <button
+      type="button"
+      onClick={onSelect}
+      aria-controls={`profile-${member.slug}`}
+      className={`team-card w-full text-left bg-white rounded-lg overflow-hidden border shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black ${
+        selected ? "border-black" : "border-transparent"
+      }`}
+    >
+      <div className="relative aspect-[4/5] bg-[#eceae6]">
+        {member.image ? (
+          <Image
+            src={member.image}
+            alt=""
+            fill
+            className="object-cover"
+            sizes="(min-width: 1024px) 25vw, (min-width: 768px) 33vw, 50vw"
+          />
+        ) : null}
       </div>
-      <div className="p-6">
-        <h3 className="text-lg font-bold">{member.name}</h3>
-        <p className="text-accent text-sm font-medium mb-1">{member.title}</p>
-        {member.credentials && member.credentials.length > 0 && (
-          <div className="flex flex-wrap gap-1 mb-2">
-            {member.credentials.map((c) => (
-              <CredentialBadge key={c} credential={c} />
-            ))}
-          </div>
-        )}
+      <div className="p-4">
+        <p className="text-[11px] font-semibold uppercase tracking-wide text-gray-700 leading-snug line-clamp-2 min-h-8">
+          {member.title}
+        </p>
+        <h3 className="text-base font-bold text-black mt-1">{member.name}</h3>
         {member.location && (
-          <p className="text-xs text-gray-400 mb-2">
-            Based in {member.location}
-          </p>
+          <p className="text-xs text-gray-500 mt-1">{member.location}</p>
         )}
-        <p className="text-gray-600 text-sm mb-3">{member.bio}</p>
-        <a
-          href={`mailto:${member.email}`}
-          className="text-sm text-accent hover:underline"
-        >
-          {member.email}
-        </a>
       </div>
-    </div>
+    </button>
   );
 }

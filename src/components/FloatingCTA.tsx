@@ -11,8 +11,8 @@ export default function FloatingCTA() {
       {/* Expanded options */}
       {open && (
         <div className="mb-3 bg-white rounded-lg shadow-xl border border-gray-200 overflow-hidden w-64">
-          <div className="p-4 bg-bg-dark text-white">
-            <p className="font-semibold text-sm">Get in Touch</p>
+          <div className="p-4 bg-bg-light border-b border-gray-100">
+            <p className="font-semibold text-sm text-heading">Get in Touch</p>
           </div>
           <div className="p-2">
             <a

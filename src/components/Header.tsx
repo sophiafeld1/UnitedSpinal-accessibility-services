@@ -41,13 +41,13 @@ export default function Header() {
   const pathname = usePathname();
 
   return (
-    <header className="w-full bg-bg-dark">
+    <header className="w-full bg-white border-b border-gray-200 shadow-sm">
       {/* Top bar: email */}
-      <div className="text-gray-400 text-xs py-1.5">
+      <div className="text-gray-600 text-xs py-1.5 bg-accent-light border-b border-accent-soft">
         <div className="max-w-7xl mx-auto px-4 flex justify-end items-center gap-4">
           <a
             href="mailto:info@accessibility-services.com"
-            className="hover:text-white transition-colors"
+            className="hover:text-accent transition-colors"
           >
             info@accessibility-services.com
           </a>
@@ -55,7 +55,7 @@ export default function Header() {
       </div>
 
       {/* Single dark bar: logo + nav + CTA */}
-      <nav className="sticky top-0 z-50 border-t border-white/10">
+      <nav className="sticky top-0 z-50 bg-white">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex items-center justify-between gap-6 py-3">
             {/* Logo: icon (clipped) + three-line lockup; top line left-aligned to oval, ACCESSIBILITY narrow/large, SERVICES a touch smaller and right */}
@@ -76,19 +76,19 @@ export default function Header() {
               </span>
               <span className="flex flex-col justify-center gap-y-0.5 leading-tight">
                 <span
-                  className="text-[11px] font-bold text-gray-400 -ml-2.5"
+                  className="text-[11px] font-bold text-gray-500 -ml-2.5"
                   style={{ fontFamily: "var(--font-sans)" }}
                 >
                   United Spinal Association&apos;s
                 </span>
                 <span
-                  className="text-xl md:text-2xl font-normal uppercase text-white tracking-wide"
+                  className="text-xl md:text-2xl font-normal uppercase text-accent tracking-wide"
                   style={{ fontFamily: "var(--font-condensed)" }}
                 >
                   ACCESSIBILITY
                 </span>
                 <span
-                  className="text-[1.52rem] md:text-[1.69rem] font-bold uppercase text-gray-500 ml-0.5 tracking-wide"
+                  className="text-[1.52rem] md:text-[1.69rem] font-bold uppercase text-gray-600 ml-0.5 tracking-wide"
                   style={{ fontFamily: "var(--font-sans)" }}
                 >
                   SERVICES
@@ -115,7 +115,7 @@ export default function Header() {
                       pathname === item.href ||
                       (item.hasDropdown && pathname.startsWith("/services"))
                         ? "text-accent border-b-2 border-accent"
-                        : "text-white hover:text-accent"
+                        : "text-gray-700 hover:text-accent"
                     }`}
                   >
                     {item.label}
@@ -186,7 +186,7 @@ export default function Header() {
               </Link>
               <button
                 onClick={() => setSearchOpen(!searchOpen)}
-                className="text-white p-3 hover:text-accent transition-colors"
+                className="text-gray-700 p-3 hover:text-accent transition-colors"
                 aria-label="Search"
               >
                 <svg
@@ -209,7 +209,7 @@ export default function Header() {
             <div className="flex lg:hidden items-center">
               <button
                 onClick={() => setSearchOpen(!searchOpen)}
-                className="text-white p-4 hover:text-accent transition-colors"
+                className="text-gray-700 p-4 hover:text-accent transition-colors"
                 aria-label="Search"
               >
                 <svg
@@ -228,7 +228,7 @@ export default function Header() {
               </button>
               <button
                 onClick={() => setMobileMenuOpen(true)}
-                className="text-white p-4"
+                className="text-gray-700 p-4"
                 aria-label="Open menu"
               >
                 <svg

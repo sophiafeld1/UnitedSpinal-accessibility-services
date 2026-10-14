@@ -3,9 +3,10 @@ export interface TeamMember {
   title: string;
   email: string;
   bio: string;
-  image: string;
+  image?: string;
   slug: string;
   location?: string;
+  state?: string;
   credentials?: string[];
 }
 

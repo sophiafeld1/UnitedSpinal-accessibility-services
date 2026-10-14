@@ -1,43 +1,119 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { teamMembers } from "@/data/team";
+import type { TeamMember } from "@/data/types";
 import TeamCard from "./TeamCard";
 
-const locations = ["All", ...Array.from(new Set(teamMembers.map((m) => m.location).filter(Boolean))) as string[]];
+const states = [
+  "All",
+  ...Array.from(
+    new Set(teamMembers.map((m) => m.state).filter(Boolean)),
+  ).sort() as string[],
+];
+
+function profileLead(member: TeamMember): string {
+  const credentials = member.credentials?.filter(Boolean) ?? [];
+  return credentials.length
+    ? `${member.name} (${credentials.join(", ")})`
+    : member.name;
+}
 
 export default function TeamFilter() {
   const [active, setActive] = useState("All");
+  const [selected, setSelected] = useState<string | null>(null);
 
   const filtered =
     active === "All"
       ? teamMembers
-      : teamMembers.filter((m) => m.location === active);
+      : teamMembers.filter((m) => m.state === active);
+
+  function openMember(slug: string) {
+    setSelected(slug);
+    const target = document.getElementById(`profile-${slug}`);
+    if (!target) return;
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    target.scrollIntoView({
+      behavior: reduce ? "auto" : "smooth",
+      block: "start",
+    });
+  }
 
   return (
     <>
-      {/* Filter bar */}
-      <div className="flex flex-wrap gap-2 justify-center mb-8">
-        {locations.map((loc) => (
+      <div className="flex flex-wrap gap-2 justify-center mb-10">
+        {states.map((state) => (
           <button
-            key={loc}
-            onClick={() => setActive(loc)}
+            key={state}
+            type="button"
+            onClick={() => setActive(state)}
             className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
-              active === loc
+              active === state
                 ? "bg-accent text-white"
-                : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                : "bg-white text-gray-800 hover:bg-gray-200"
             }`}
           >
-            {loc}
+            {state}
           </button>
         ))}
       </div>
 
-      {/* Team grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div id="team-grid" className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {filtered.map((member) => (
-          <TeamCard key={member.slug} member={member} />
+          <TeamCard
+            key={member.slug}
+            member={member}
+            selected={selected === member.slug}
+            onSelect={() => openMember(member.slug)}
+          />
         ))}
+      </div>
+
+      <div className="mt-16 space-y-10">
+        {filtered.map((member) => {
+          return (
+            <article
+              key={member.slug}
+              id={`profile-${member.slug}`}
+              className="scroll-mt-6 border-t border-gray-300 pt-10"
+            >
+              <div className="flex gap-6 md:gap-12">
+                <div className="w-28 sm:w-44 md:w-52 shrink-0">
+                  <div className="relative aspect-[4/5] bg-[#eceae6]">
+                    {member.image ? (
+                      <Image
+                        src={member.image}
+                        alt={member.name}
+                        fill
+                        className="object-cover"
+                        sizes="208px"
+                      />
+                    ) : null}
+                  </div>
+                  {member.location && (
+                    <p className="text-xs text-gray-600 mt-3">{member.location}</p>
+                  )}
+                  <a
+                    href={`mailto:${member.email}`}
+                    className="mt-3 inline-flex items-center justify-center bg-black px-4 py-2 text-xs font-semibold uppercase tracking-wide text-white hover:bg-gray-800"
+                  >
+                    Contact
+                  </a>
+                </div>
+                <div className="min-w-0">
+                  <p className="text-xs font-medium uppercase tracking-wider text-gray-500 mb-3">
+                    {member.title}
+                  </p>
+                  <p className="text-gray-800 leading-relaxed">
+                    <span className="font-bold text-black">{profileLead(member)}.</span>{" "}
+                    {member.bio}
+                  </p>
+                </div>
+              </div>
+            </article>
+          );
+        })}
       </div>
     </>
   );
