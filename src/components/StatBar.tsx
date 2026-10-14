@@ -57,7 +57,12 @@ export default function StatBar() {
 
     const visible = () => {
       const rect = section.getBoundingClientRect();
-      return rect.top < window.innerHeight * 0.9 && rect.bottom > 40;
+      const viewHeight = window.innerHeight;
+      // Wait until the whole row is on screen, so the count doesn't run
+      // while the boxes are still cut off at the bottom of the viewport.
+      const fullyVisible = rect.top >= 16 && rect.bottom <= viewHeight - 16;
+      const fillsView = rect.height >= viewHeight && rect.top <= 16 && rect.bottom >= viewHeight - 16;
+      return fullyVisible || fillsView;
     };
 
     const stop = () => {

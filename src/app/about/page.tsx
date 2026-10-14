@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import PageHeader from "@/components/PageHeader";
+import Image from "next/image";
 import Container from "@/components/Container";
 import CTAButton from "@/components/CTAButton";
 import StatBar from "@/components/StatBar";
@@ -23,7 +23,28 @@ const servicesList = [
 export default function AboutPage() {
   return (
     <>
-      <PageHeader title="About Us" compact />
+      <section className="relative h-52 sm:h-60 md:h-72 overflow-hidden">
+        <Image
+          src="/images/AboutUsHero.png"
+          alt="An accessible campus path leading to a stone and glass building, with a person using a wheelchair"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-[center_42%]"
+        />
+        <div className="absolute inset-0 bg-black/40" />
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="text-center">
+            <h1 className="text-3xl md:text-4xl font-bold text-white mb-3">
+              About Us
+            </h1>
+            <div
+              className="h-1 w-14 bg-accent rounded-full mx-auto"
+              aria-hidden="true"
+            />
+          </div>
+        </div>
+      </section>
 
       {/* About intro + what we do */}
       <section className="py-8 bg-white">
