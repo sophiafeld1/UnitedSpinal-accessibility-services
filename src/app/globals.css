@@ -14,13 +14,15 @@
   --color-bg-dark: #ffffff;
   --color-bg-gray: #f3f4f6;
   --color-bg-light: #fafafa;
-  --font-sans: var(--font-source-sans), "Source Sans 3", "PT Sans", Arial, Helvetica, sans-serif;
-  --font-heading: var(--font-poppins), "Poppins", "PT Sans", sans-serif;
+  --font-sans: var(--font-fira-sans), "Fira Sans", Arial, Helvetica, sans-serif;
+  --font-heading: var(--font-fira-sans), "Fira Sans", Arial, Helvetica, sans-serif;
   --font-condensed: var(--font-condensed), "Oswald", "Arial Narrow", sans-serif;
 }
 
 @layer base {
   body {
+    --font-sans: var(--font-fira-sans), "Fira Sans", Arial, Helvetica, sans-serif;
+    --font-heading: var(--font-fira-sans), "Fira Sans", Arial, Helvetica, sans-serif;
     font-family: var(--font-sans);
     color: var(--color-text);
     line-height: 1.6;

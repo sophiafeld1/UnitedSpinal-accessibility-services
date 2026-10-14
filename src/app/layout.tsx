@@ -1,20 +1,14 @@
 import type { Metadata } from "next";
-import { Source_Sans_3, Poppins, Oswald } from "next/font/google";
+import { Fira_Sans, Oswald } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FloatingCTA from "@/components/FloatingCTA";
 import "./globals.css";
 
-const sourceSans = Source_Sans_3({
-  variable: "--font-source-sans",
+const firaSans = Fira_Sans({
+  variable: "--font-fira-sans",
   subsets: ["latin"],
-  weight: ["300", "400", "600", "700"],
-});
-
-const poppins = Poppins({
-  variable: "--font-poppins",
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "800"],
+  weight: ["400", "500", "600", "700"],
 });
 
 const oswald = Oswald({
@@ -43,7 +37,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en-US">
-      <body className={`${sourceSans.variable} ${poppins.variable} ${oswald.variable} antialiased`}>
+      <body className={`${firaSans.variable} ${oswald.variable} antialiased`}>
         <Header />
         <main>{children}</main>
         <Footer />

@@ -80,18 +80,18 @@ export default function StatBar() {
   }, []);
 
   return (
-    <section
-      ref={sectionRef}
-      className="bg-accent-light py-10 border-y border-accent-soft"
-    >
+    <section ref={sectionRef} className="bg-[#f4f4f4] py-8 md:py-10">
       <Container>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
           {stats.map((stat) => (
-            <div key={stat.label}>
+            <div
+              key={stat.label}
+              className="border border-[#e2e2e2] bg-white px-3 py-5 md:py-6 text-center"
+            >
               <p className="text-3xl md:text-4xl font-bold text-accent mb-1 tabular-nums">
                 <StatFigure value={stat.value} active={active} />
               </p>
-              <p className="text-gray-600 text-sm uppercase tracking-wider">
+              <p className="text-gray-600 text-xs md:text-sm uppercase tracking-wide">
                 {stat.label}
               </p>
             </div>
