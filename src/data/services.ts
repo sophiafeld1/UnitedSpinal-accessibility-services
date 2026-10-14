@@ -4,7 +4,7 @@ export const services: Service[] = [
   {
     title: "Site Assessment",
     slug: "site-assessment",
-    image: "/images/services/assessment.jpg",
+    image: "/images/siteassessment.png",
     description:
       "One of our trained professionals will tour the facility and discuss your concerns. A comprehensive report is prepared which summarizes the site visit and contains design solutions in the form of plans and specifications that address all the issues discovered during the site visit.",
     painPointHeadline:
@@ -21,7 +21,7 @@ export const services: Service[] = [
   {
     title: "Design and Consultation",
     slug: "design-and-consultation",
-    image: "/images/services/design.jpg",
+    image: "/images/designandconsulatation.png",
     description:
       "Depending on your requirements, we can develop conceptual drawings for your project as well as construction documents. We are a premier resource for architects and building owners for design assistance to incorporating accessible elements into a project.",
     painPointHeadline:
@@ -38,7 +38,7 @@ export const services: Service[] = [
   {
     title: "Plan/Code Review",
     slug: "code-review",
-    image: "/images/services/planning.jpg",
+    image: "/images/plan-code-review.png",
     description:
       "We will perform a comprehensive and accurate review of your plans, in a timely fashion, for compliance with applicable accessibility codes. Our review covers all occupancy classifications, with documented deficiencies and graphic solutions provided.",
     painPointHeadline:
@@ -55,7 +55,7 @@ export const services: Service[] = [
   {
     title: "Expert Witness",
     slug: "expert-witness",
-    image: "/images/services/witness.jpg",
+    image: "/images/expertwitness.png",
     description:
       "Our expert witnesses are knowledgeable on matters related to Americans with Disabilities Act (ADA) Compliance. We provide advice on accommodation, accessibility consulting, and expert testimonies.",
     painPointHeadline:

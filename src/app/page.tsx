@@ -115,7 +115,7 @@ export default function Home() {
         </Container>
       </section>
 
-      <section className="relative h-52 sm:h-60 md:h-72 overflow-hidden">
+      <section className="relative overflow-hidden">
         <Image
           src="/images/AboutUsHero.png"
           alt="An accessible campus path leading to a stone and glass building, with a person using a wheelchair"
@@ -123,17 +123,22 @@ export default function Home() {
           sizes="100vw"
           className="object-cover object-[center_42%]"
         />
-        <div className="absolute inset-0 bg-black/40" />
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
-              About Us
-            </h2>
-            <div
-              className="h-1 w-14 bg-accent rounded-full mx-auto"
-              aria-hidden="true"
-            />
-          </div>
+        <div className="absolute inset-0 bg-black/45" />
+        <div className="relative z-10 mx-auto max-w-4xl px-6 py-12 md:py-16 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
+            About Us
+          </h2>
+          <div
+            className="h-1 w-14 bg-accent rounded-full mx-auto mb-5"
+            aria-hidden="true"
+          />
+          <p className="text-white text-sm md:text-base leading-relaxed">
+            Accessibility Services is proud to be recognized on the Forbes
+            Accessibility 100 List for our commitment to inclusive design and
+            accessibility. We&apos;re a Registered Provider for the
+            International Code Council and an American Institute of Architects
+            Approved Provider of Continuing Education
+          </p>
         </div>
       </section>
 
@@ -141,14 +146,6 @@ export default function Home() {
       <section className="py-16 bg-white overflow-hidden">
         <Container>
           <ScrollReveal>
-            <p className="text-gray-600 text-center max-w-4xl mx-auto mb-12">
-              Accessibility Services is proud to be recognized on the Forbes
-              Accessibility 100 List for our commitment to inclusive design and
-              accessibility. We&apos;re a Registered Provider for the
-              International Code Council and an American Institute of Architects
-              Approved Provider of Continuing Education
-            </p>
-
             <div className="flex flex-col lg:flex-row gap-8">
               <div className="lg:w-2/3">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
