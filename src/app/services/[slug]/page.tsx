@@ -11,6 +11,7 @@ import FAQAccordion from "@/components/FAQAccordion";
 import ServiceCard from "@/components/ServiceCard";
 import FeeScheduleTable from "@/components/FeeScheduleTable";
 import RegulatoryLinks from "@/components/RegulatoryLinks";
+import CaspDetails from "@/components/CaspDetails";
 
 interface ServicePageProps {
   params: Promise<{ slug: string }>;
@@ -70,6 +71,10 @@ export default async function ServicePage({ params }: ServicePageProps) {
       <section className="py-16">
         <Container>
           <div className="max-w-4xl mx-auto">
+            {slug === "casp" ? (
+              <CaspDetails />
+            ) : (
+              <>
             {/* Pain-point headline */}
             <p className="text-xl text-accent font-medium italic mb-6">
               {service.painPointHeadline}
@@ -126,6 +131,9 @@ export default async function ServicePage({ params }: ServicePageProps) {
               </div>
             )}
 
+              </>
+            )}
+
             {/* Related Services */}
             {related.length > 0 && (
               <div className="mt-16">
@@ -141,11 +149,13 @@ export default async function ServicePage({ params }: ServicePageProps) {
         </Container>
       </section>
 
-      <CTASection
-        headline={`Get a Free Consultation About ${service.title}`}
-        description="Our team of certified specialists is ready to help with your project."
-        buttonHref={`/contact?service=${service.slug}`}
-      />
+      {slug !== "casp" && (
+        <CTASection
+          headline={`Get a Free Consultation About ${service.title}`}
+          description="Our team of certified specialists is ready to help with your project."
+          buttonHref={`/contact?service=${service.slug}`}
+        />
+      )}
     </>
   );
 }

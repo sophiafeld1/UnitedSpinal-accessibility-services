@@ -84,7 +84,7 @@ export default function TeamFilter() {
         ))}
       </div>
 
-      <div id="team-grid" className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      <div id="team-grid" className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-3">
         {filtered.map((member) => (
           <TeamCard
             key={member.slug}
@@ -105,7 +105,7 @@ export default function TeamFilter() {
             >
               <div className="flex gap-6 md:gap-12">
                 <div className="w-28 sm:w-44 md:w-52 shrink-0">
-                  <div className="relative aspect-[4/5] bg-[#eceae6]">
+                  <div className="relative aspect-[4/5] bg-[#d9d9d9]">
                     {member.image ? (
                       <Image
                         src={member.image}

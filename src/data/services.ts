@@ -124,46 +124,14 @@ export const services: Service[] = [
     slug: "casp",
     image: "/images/services/assessment.jpg",
     description:
-      "Our Certified Access Specialists (CASp) provide California-specific accessibility inspections that give property owners legal benefits under SB 1608 and SB 269.",
+      "While a licensed design professional, such as an architect or engineer, can provide an access compliance evaluation of a facility, only a CASp can provide services that offer “qualified defendant” status in a construction-related accessibility lawsuit.",
     painPointHeadline:
-      "Received an ADA lawsuit in California? A CASp report is your best defense.",
+      "Having a business/property reviewed by a CASp shows that business owners care about ensuring equal access for all customers, and the intent to follow the law.",
     category: "state-specific",
     featured: false,
-    metaTitle: "CASp Inspection - California Accessibility",
+    metaTitle: "CASp Inspection",
     metaDescription:
-      "Certified Access Specialist inspections for California properties. Get qualified defendant status and legal protections under SB 1608.",
-    longDescription: [
-      "Our Certified Access Specialists (CASp) provide California-specific accessibility inspections that give property owners significant legal benefits under SB 1608 and SB 269.",
-      'Under California law, a property owner who obtains a CASp inspection report becomes a "qualified defendant" in any subsequent ADA lawsuit. This status provides important procedural advantages including an automatic stay of the lawsuit, an early evaluation conference, and reduced statutory damages.',
-    ],
-    stateSpecific: {
-      state: "California",
-      regulatoryBody:
-        "California Division of the State Architect (DSA)",
-      regulatoryLinks: [
-        {
-          label: "DSA CASp Program",
-          url: "https://www.dgs.ca.gov/DSA/Programs/programCASp",
-        },
-      ],
-      feeSchedule: [
-        {
-          tier: "Small Business (under 2,500 sq ft)",
-          description: "CASp inspection for small retail or office spaces",
-          price: "Contact us for pricing",
-        },
-        {
-          tier: "Medium Facility (2,500-25,000 sq ft)",
-          description: "CASp inspection for mid-size commercial properties",
-          price: "Contact us for pricing",
-        },
-        {
-          tier: "Large Facility (over 25,000 sq ft)",
-          description: "CASp inspection for large commercial or public facilities",
-          price: "Contact us for pricing",
-        },
-      ],
-    },
+      "Having a business/property reviewed by a CASp shows that business owners care about ensuring equal access for all customers, and the intent to follow the law.",
   },
   {
     title: "Inspection & Certification",
