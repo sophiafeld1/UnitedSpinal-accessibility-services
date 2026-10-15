@@ -122,7 +122,7 @@ export const services: Service[] = [
   {
     title: "CASp Inspection",
     slug: "casp",
-    image: "/images/services/assessment.jpg",
+    image: "/images/CASp.png",
     description:
       "While a licensed design professional, such as an architect or engineer, can provide an access compliance evaluation of a facility, only a CASp can provide services that offer “qualified defendant” status in a construction-related accessibility lawsuit.",
     painPointHeadline:

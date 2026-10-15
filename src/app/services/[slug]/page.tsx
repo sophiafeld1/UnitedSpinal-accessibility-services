@@ -67,14 +67,26 @@ export default async function ServicePage({ params }: ServicePageProps) {
         </div>
       </section>
 
-      {/* Main Content */}
+      {slug === "casp" ? (
+        <>
+          <CaspDetails />
+          {related.length > 0 && (
+            <section className="pb-16">
+              <Container>
+                <h2 className="text-2xl font-bold mb-6">Related Services</h2>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                  {related.map((s) => (
+                    <ServiceCard key={s.slug} service={s} variant="light" />
+                  ))}
+                </div>
+              </Container>
+            </section>
+          )}
+        </>
+      ) : (
       <section className="py-16">
         <Container>
           <div className="max-w-4xl mx-auto">
-            {slug === "casp" ? (
-              <CaspDetails />
-            ) : (
-              <>
             {/* Pain-point headline */}
             <p className="text-xl text-accent font-medium italic mb-6">
               {service.painPointHeadline}
@@ -131,9 +143,6 @@ export default async function ServicePage({ params }: ServicePageProps) {
               </div>
             )}
 
-              </>
-            )}
-
             {/* Related Services */}
             {related.length > 0 && (
               <div className="mt-16">
@@ -148,6 +157,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
           </div>
         </Container>
       </section>
+      )}
 
       {slug !== "casp" && (
         <CTASection
