@@ -145,7 +145,7 @@ function ContactForm() {
             {/* Contact Form */}
             <div className="lg:w-2/3">
               <h2 className="text-2xl font-bold mb-6">
-                Request a Free Consultation
+                Request a Free Consultation or Training
               </h2>
               <form onSubmit={handleSubmit} className="space-y-6">
                 {/* Name row */}
@@ -282,6 +282,7 @@ function ContactForm() {
                     className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-accent bg-white"
                   >
                     <option value="">Select a service...</option>
+                    <option value="training">Training</option>
                     {services.map((s) => (
                       <option key={s.slug} value={s.slug}>
                         {s.title}
@@ -435,8 +436,8 @@ function ContactForm() {
                 {/* Free consultation callout */}
                 <div className="mt-8 p-4 bg-accent/10 rounded-lg">
                   <p className="text-sm font-medium text-gray-800">
-                    All initial consultations are free. We&apos;ll review your
-                    project scope and provide a tailored recommendation.
+                    All initial consultations are free. Use this form to ask
+                    about a project or to schedule a training for your team.
                   </p>
                 </div>
               </div>

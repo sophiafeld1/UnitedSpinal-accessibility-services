@@ -54,7 +54,7 @@ export default function FloatingCTA() {
               <div>
                 <p className="text-sm font-medium">Contact Form</p>
                 <p className="text-xs text-gray-500">
-                  Request a free consultation
+                  Request a consultation or training
                 </p>
               </div>
             </Link>

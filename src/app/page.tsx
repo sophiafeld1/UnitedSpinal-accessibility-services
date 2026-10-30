@@ -83,7 +83,7 @@ export default function Home() {
                   href="/contact"
                   className="hero-cta inline-block bg-accent text-white px-8 py-3 font-semibold rounded hover:bg-accent-hover"
                 >
-                  Free Consultation
+                  Consultation or Training
                 </Link>
                 <Link
                   href="/consulting"
@@ -215,8 +215,8 @@ export default function Home() {
 
       {/* CTA Band */}
       <CTASection
-        headline="Schedule Your Free Consultation"
-        description="Our team of certified specialists is ready to help ensure your project meets all accessibility requirements."
+        headline="Schedule a Consultation or Training"
+        description="Tell us about a project, or ask us to tailor a training for your team. Initial consultations are free."
       />
     </>
   );

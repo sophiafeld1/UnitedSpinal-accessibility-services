@@ -182,7 +182,7 @@ export default function Header() {
                 href="/contact"
                 className="bg-accent text-white px-4 py-2 text-sm font-semibold rounded hover:bg-accent-hover transition-colors"
               >
-                Free Consultation
+                Consultation or Training
               </Link>
               <button
                 onClick={() => setSearchOpen(!searchOpen)}
@@ -348,7 +348,7 @@ export default function Header() {
                   onClick={() => setMobileMenuOpen(false)}
                   className="block text-center bg-accent text-white px-6 py-3 rounded font-semibold hover:bg-accent-hover transition-colors"
                 >
-                  Free Consultation
+                  Consultation or Training
                 </Link>
               </div>
             </div>
