@@ -20,10 +20,7 @@ export default function ProjectsPage() {
         <Container>
           <div className="max-w-4xl mx-auto text-center mb-12">
             <p className="text-gray-700 leading-relaxed text-lg">
-              From giant sports stadiums to mom-and-pop restaurants, we have
-              provided accessibility consulting services for a wide range of
-              projects. A few examples are below. More will be added once
-              clients confirm they can be named.
+              Overview of projects will be added here.
             </p>
           </div>
 
