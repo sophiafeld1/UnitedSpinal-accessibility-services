@@ -124,25 +124,60 @@ html {
   transition: opacity 0.3s ease;
 }
 
-/* Sample testimonial card */
-.testimonial-preview-quote {
-  animation: testimonial-preview-rise 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+/* Sample testimonial rail */
+.testimonial-rail {
+  overflow: hidden;
+  container-type: inline-size;
 }
 
-@keyframes testimonial-preview-rise {
+.testimonial-rail-track {
+  display: flex;
+  width: max-content;
+  animation: testimonial-rail 32s linear infinite;
+}
+
+.testimonial-rail-track:hover {
+  animation-play-state: paused;
+}
+
+.testimonial-rail-row {
+  display: flex;
+  gap: 1.5rem;
+  margin: 0;
+  padding-right: 1.5rem;
+  list-style: none;
+}
+
+.testimonial-rail-card {
+  width: calc((100cqi - 3rem) / 3);
+  flex: none;
+}
+
+@keyframes testimonial-rail {
   from {
-    opacity: 0;
-    transform: translateY(14px);
+    transform: translateX(-50%);
   }
   to {
-    opacity: 1;
-    transform: translateY(0);
+    transform: translateX(0);
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .testimonial-preview-quote {
+  .testimonial-rail-track {
     animation: none;
+    width: auto;
+    justify-content: center;
+  }
+
+  .testimonial-rail-row[aria-hidden="true"] {
+    display: none;
+  }
+
+  .testimonial-rail-row {
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    padding-right: 0;
   }
 }
 
