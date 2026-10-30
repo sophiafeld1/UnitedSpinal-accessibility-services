@@ -56,13 +56,12 @@ export default function StatBar() {
     let timer = 0;
 
     const visible = () => {
-      const rect = section.getBoundingClientRect();
       const viewHeight = window.innerHeight;
-      // Wait until the whole row is on screen, so the count doesn't run
-      // while the boxes are still cut off at the bottom of the viewport.
-      const fullyVisible = rect.top >= 16 && rect.bottom <= viewHeight - 16;
-      const fillsView = rect.height >= viewHeight && rect.top <= 16 && rect.bottom >= viewHeight - 16;
-      return fullyVisible || fillsView;
+      const figures = section.querySelectorAll("p");
+      return [...figures].some((figure) => {
+        const rect = figure.getBoundingClientRect();
+        return rect.top < viewHeight && rect.bottom > 0;
+      });
     };
 
     const stop = () => {
@@ -78,10 +77,14 @@ export default function StatBar() {
     };
 
     check();
+    const frame = requestAnimationFrame(check);
     timer = window.setInterval(check, 150);
     window.addEventListener("scroll", check, { passive: true });
     window.addEventListener("resize", check);
-    return () => stop();
+    return () => {
+      cancelAnimationFrame(frame);
+      stop();
+    };
   }, []);
 
   return (

@@ -24,17 +24,17 @@ export default function TeamCard({ member, selected, onSelect }: TeamCardProps) 
             alt=""
             fill
             className="object-cover"
-            sizes="(min-width: 1024px) 14vw, (min-width: 640px) 25vw, 50vw"
+            sizes="(min-width: 1024px) 18vw, (min-width: 640px) 30vw, 50vw"
           />
         ) : null}
       </div>
-      <div className="p-2">
-        <p className="text-[9px] font-semibold uppercase tracking-wide text-gray-700 leading-snug line-clamp-2 min-h-6">
+      <div className="p-3">
+        <p className="text-xs font-semibold uppercase tracking-wide text-gray-700 leading-snug line-clamp-2 min-h-8">
           {member.title}
         </p>
-        <h3 className="text-xs font-bold text-black mt-1">{member.name}</h3>
+        <h3 className="text-sm font-bold text-black mt-1">{member.name}</h3>
         {member.location && (
-          <p className="text-[10px] text-gray-500 mt-1">{member.location}</p>
+          <p className="text-xs text-gray-500 mt-1">{member.location}</p>
         )}
       </div>
     </button>

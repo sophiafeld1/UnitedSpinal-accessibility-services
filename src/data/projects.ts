@@ -2,44 +2,22 @@ import type { Project, ProjectVertical } from "./types";
 
 export const projects: Project[] = [
   {
-    name: "United Nations Headquarters",
-    client: "United Nations",
-    vertical: "civic",
-    location: "New York, NY",
-    description:
-      "Comprehensive accessibility assessment and consulting for the United Nations headquarters renovation project.",
-  },
-  {
-    name: "Highmark Stadium",
-    client: "Buffalo Bills",
+    name: "Sports stadium",
     vertical: "entertainment",
-    location: "Orchard Park, NY",
     description:
-      "Accessibility consulting for one of the NFL's premier stadium facilities.",
+      "Accessibility consulting for a large sports venue, including seating, routes, and restrooms.",
   },
   {
-    name: "San Diego Zoo",
-    client: "San Diego Zoo Wildlife Alliance",
+    name: "Museum and cultural campus",
     vertical: "recreation",
-    location: "San Diego, CA",
     description:
-      "Accessibility assessment and design consultation for zoo facilities and exhibits.",
+      "Assessment and design consultation for exhibit spaces, paths, and visitor amenities.",
   },
   {
-    name: "Marriott Hotels",
-    client: "Marriott International",
+    name: "Hotel properties",
     vertical: "hotel",
-    location: "Multiple Locations",
     description:
-      "Ongoing accessibility consulting for hotel properties nationwide.",
-  },
-  {
-    name: "Urban Edge Properties",
-    client: "Urban Edge Properties",
-    vertical: "retail",
-    location: "Multiple Locations",
-    description:
-      "Accessibility compliance services for a portfolio of retail properties.",
+      "Ongoing accessibility consulting across a group of hotel properties.",
   },
 ];
 
