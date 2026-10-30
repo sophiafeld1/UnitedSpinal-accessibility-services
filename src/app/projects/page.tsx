@@ -3,6 +3,7 @@ import { serviceAreas } from "@/data/projects";
 import PageHeader from "@/components/PageHeader";
 import Container from "@/components/Container";
 import VerticalFilter from "@/components/VerticalFilter";
+import LogoMarquee from "@/components/LogoMarquee";
 
 export const metadata: Metadata = {
   title: "Projects",
@@ -27,9 +28,14 @@ export default function ProjectsPage() {
           </div>
 
           <VerticalFilter />
+        </Container>
+      </section>
 
-          {/* Service Areas */}
-          <div className="max-w-4xl mx-auto mt-16">
+      <LogoMarquee />
+
+      <section className="pt-16 pb-16">
+        <Container>
+          <div className="max-w-4xl mx-auto">
             <h3 className="text-2xl font-bold text-center mb-8">
               Service Areas
             </h3>

@@ -9,6 +9,9 @@ import StatBar from "@/components/StatBar";
 import CTASection from "@/components/CTASection";
 import SectionHeading from "@/components/SectionHeading";
 import ScrollReveal from "@/components/ScrollReveal";
+import TestimonialPreview from "@/components/TestimonialPreview";
+import { testimonials } from "@/data/testimonials";
+import TestimonialCard from "@/components/TestimonialCard";
 
 const aboutItems = [
   {
@@ -183,9 +186,15 @@ export default function Home() {
       <section className="py-16 bg-bg-light">
         <Container>
           <SectionHeading title="What Our Clients Say" />
-          <p className="text-center text-gray-600 max-w-2xl mx-auto">
-            Client testimonials will be added here.
-          </p>
+          {testimonials.length > 0 ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+              {testimonials.slice(0, 4).map((testimonial, i) => (
+                <TestimonialCard key={i} testimonial={testimonial} />
+              ))}
+            </div>
+          ) : (
+            <TestimonialPreview />
+          )}
         </Container>
       </section>
 

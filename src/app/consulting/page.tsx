@@ -7,6 +7,7 @@ import Container from "@/components/Container";
 import ServiceCard from "@/components/ServiceCard";
 import SectionHeading from "@/components/SectionHeading";
 import TestimonialCard from "@/components/TestimonialCard";
+import TestimonialPreview from "@/components/TestimonialPreview";
 import FAQAccordion from "@/components/FAQAccordion";
 import CTASection from "@/components/CTASection";
 
@@ -102,11 +103,15 @@ export default function ConsultingPage() {
       <section className="py-16 bg-bg-light">
         <Container>
           <SectionHeading title="What Our Clients Say" />
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-            {testimonials.slice(0, 4).map((t, i) => (
-              <TestimonialCard key={i} testimonial={t} />
-            ))}
-          </div>
+          {testimonials.length > 0 ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+              {testimonials.slice(0, 4).map((t, i) => (
+                <TestimonialCard key={i} testimonial={t} />
+              ))}
+            </div>
+          ) : (
+            <TestimonialPreview />
+          )}
         </Container>
       </section>
 
