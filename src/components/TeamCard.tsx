@@ -15,7 +15,7 @@ const BIO_WIDTH = 280;
 export default function TeamCard({ member, selected, onSelect }: TeamCardProps) {
   const [openLeft, setOpenLeft] = useState(false);
 
-  function placeBio(current: HTMLDivElement) {
+  function placeBio(current: HTMLElement) {
     const rect = current.getBoundingClientRect();
     const spaceRight = window.innerWidth - rect.right;
     setOpenLeft(spaceRight < BIO_WIDTH + 24);
