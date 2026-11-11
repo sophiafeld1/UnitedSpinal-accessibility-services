@@ -71,50 +71,37 @@ export const services: Service[] = [
     ],
   },
   {
-    title: "TX RAS Review",
+    title: "Texas RAS Services",
     slug: "tx-ras",
     image: "/images/services/assessment.jpg",
     description:
-      "Our Texas Registered Accessibility Specialists (RAS) provide TDLR-required accessibility reviews for commercial and public building projects throughout Texas.",
+      "Accessibility Services helps project teams navigate Texas accessibility requirements through project registration support, plan reviews, and on-site inspections.",
     painPointHeadline:
-      "Need a Texas RAS review before your TDLR deadline?",
+      "Need help with Texas project registration, plan review, or an inspection?",
     category: "state-specific",
     featured: false,
-    metaTitle: "Texas RAS Accessibility Review",
+    metaTitle: "Texas RAS Services",
     metaDescription:
-      "Texas Registered Accessibility Specialist reviews for TDLR compliance. Expert RAS services for commercial and public building projects.",
+      "Texas Registered Accessibility Specialist support for project registration, plan review, and inspections, plus related accessibility consulting.",
     longDescription: [
-      "Our Texas Registered Accessibility Specialists (RAS) provide TDLR-required accessibility reviews for commercial and public building projects throughout Texas.",
-      "Texas requires that all commercial and public buildings be reviewed by a Registered Accessibility Specialist before a building permit can be issued. Our RAS team ensures your project meets all Texas Accessibility Standards (TAS) requirements.",
+      "Accessibility Services helps project teams navigate Texas accessibility requirements through project registration support, plan reviews, and on-site inspections.",
+      "Our Registered Accessibility Specialists support projects through the TDLR architectural barriers process. We help clients understand the required paperwork, coordinate project registration, and arrange accessibility plan reviews and inspections.",
     ],
     stateSpecific: {
       state: "Texas",
       regulatoryBody: "Texas Department of Licensing and Regulation (TDLR)",
       regulatoryLinks: [
         {
-          label: "TDLR Elimination of Architectural Barriers",
-          url: "https://www.tdlr.texas.gov/ab/ab.htm",
+          label: "Forms and help sheets",
+          url: "https://www.tdlr.texas.gov/ab/abforms.htm",
         },
         {
-          label: "Texas Accessibility Standards (TAS)",
-          url: "https://www.tdlr.texas.gov/ab/abtas.htm",
-        },
-      ],
-      feeSchedule: [
-        {
-          tier: "Small Projects (under 5,000 sq ft)",
-          description: "Plan review and inspection for small commercial projects",
-          price: "Contact us for pricing",
+          label: "Frequently asked questions",
+          url: "https://www.tdlr.texas.gov/ab/abfaq.htm",
         },
         {
-          tier: "Medium Projects (5,000-50,000 sq ft)",
-          description: "Comprehensive review for mid-size commercial buildings",
-          price: "Contact us for pricing",
-        },
-        {
-          tier: "Large Projects (over 50,000 sq ft)",
-          description: "Full-scope review for large commercial and public facilities",
-          price: "Contact us for pricing",
+          label: "State fee schedule",
+          url: "https://www.tdlr.texas.gov/ab/abfees.htm",
         },
       ],
     },

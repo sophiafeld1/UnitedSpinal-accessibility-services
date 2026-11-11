@@ -45,18 +45,35 @@ export const faqs: FAQ[] = [
       "Our expert witnesses handle cases involving ADA compliance disputes, Fair Housing Act violations, building code non-compliance, personal injury claims related to accessibility barriers, and other disability rights litigation.",
     serviceSlug: "expert-witness",
   },
-  // TX RAS
+  // TX RAS — keep answers high-level until Rachel or another specialist reviews them.
   {
-    question: "What is a Texas Registered Accessibility Specialist (RAS)?",
+    question: "What does RAS mean?",
     answer:
-      "A RAS is a professional registered with the Texas Department of Licensing and Regulation (TDLR) who is qualified to review construction documents and inspect buildings for compliance with Texas Accessibility Standards (TAS).",
+      "RAS stands for Registered Accessibility Specialist. RAS professionals provide accessibility services within Texas’s architectural barriers program, including plan reviews and inspections.",
     serviceSlug: "tx-ras",
   },
   {
-    question:
-      "Is a RAS review required for all construction projects in Texas?",
+    question: "Can you help register my project?",
     answer:
-      "Texas requires a RAS review for most commercial and public building projects, including new construction, renovations, and additions. Some exemptions apply for certain project types and sizes.",
+      "Yes. Our team can assist with project registration and the information needed for the state process. Clients may also register their own projects.",
+    serviceSlug: "tx-ras",
+  },
+  {
+    question: "Can you help with accessibility needs beyond the TDLR process?",
+    answer:
+      "Yes. Our team also offers services such as fair housing reviews, facility assessments, and stadium accessibility consulting. Contact us to discuss the scope of your project.",
+    serviceSlug: "tx-ras",
+  },
+  {
+    question: "Where can I find current forms?",
+    answer:
+      "Visit TDLR’s official forms page for current documents and help sheets. Our team can help you determine which forms apply.",
+    serviceSlug: "tx-ras",
+  },
+  {
+    question: "Who should I contact about paperwork or technical questions?",
+    answer:
+      "Use the contact form to select administrative support or Texas accessibility questions so your inquiry can reach the appropriate team.",
     serviceSlug: "tx-ras",
   },
   // CASp

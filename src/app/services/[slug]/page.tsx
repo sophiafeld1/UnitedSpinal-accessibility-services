@@ -12,6 +12,7 @@ import ServiceCard from "@/components/ServiceCard";
 import FeeScheduleTable from "@/components/FeeScheduleTable";
 import RegulatoryLinks from "@/components/RegulatoryLinks";
 import CaspDetails from "@/components/CaspDetails";
+import TexasRasDetails from "@/components/TexasRasDetails";
 
 interface ServicePageProps {
   params: Promise<{ slug: string }>;
@@ -37,6 +38,10 @@ export default async function ServicePage({ params }: ServicePageProps) {
   const { slug } = await params;
   const service = getServiceBySlug(slug);
   if (!service) notFound();
+
+  if (slug === "tx-ras") {
+    return <TexasRasDetails />;
+  }
 
   const testimonials = getTestimonialsByService(slug);
   const faqs = getFAQsByService(slug);

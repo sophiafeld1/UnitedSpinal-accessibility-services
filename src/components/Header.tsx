@@ -24,7 +24,7 @@ const serviceLinks = {
     { label: "Expert Witness", href: "/services/expert-witness" },
   ],
   "State-Specific": [
-    { label: "TX RAS Review", href: "/services/tx-ras" },
+    { label: "Texas RAS Services", href: "/services/tx-ras" },
     { label: "CASp Inspection", href: "/services/casp" },
   ],
   "Specialized": [

@@ -7,7 +7,7 @@ const serviceLinks = [
   { label: "Design & Consultation", href: "/services/design-and-consultation" },
   { label: "Plan/Code Review", href: "/services/code-review" },
   { label: "Expert Witness", href: "/services/expert-witness" },
-  { label: "TX RAS Review", href: "/services/tx-ras" },
+  { label: "Texas RAS Services", href: "/services/tx-ras" },
   { label: "CASp Inspection", href: "/services/casp" },
 ];
 

@@ -26,8 +26,12 @@ export default function FAQAccordion({
             className="border border-gray-200 rounded-lg overflow-hidden"
           >
             <button
+              type="button"
+              aria-expanded={openIndex === i}
+              aria-controls={`faq-panel-${i}`}
+              id={`faq-button-${i}`}
               onClick={() => setOpenIndex(openIndex === i ? null : i)}
-              className="w-full flex items-center justify-between p-4 text-left hover:bg-gray-50 transition-colors"
+              className="w-full flex items-center justify-between p-4 text-left hover:bg-gray-50 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-accent"
             >
               <span className="font-medium pr-4">{faq.question}</span>
               <svg
@@ -47,7 +51,12 @@ export default function FAQAccordion({
               </svg>
             </button>
             {openIndex === i && (
-              <div className="px-4 pb-4">
+              <div
+                id={`faq-panel-${i}`}
+                role="region"
+                aria-labelledby={`faq-button-${i}`}
+                className="px-4 pb-4"
+              >
                 <p className="text-gray-600 leading-relaxed">{faq.answer}</p>
               </div>
             )}
