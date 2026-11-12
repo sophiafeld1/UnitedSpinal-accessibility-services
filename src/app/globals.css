@@ -72,6 +72,10 @@ html {
   transition: opacity 0.7s ease, transform 0.7s ease;
 }
 
+.scroll-reveal-slow {
+  transition: opacity 1.05s ease, transform 1.05s ease;
+}
+
 .scroll-reveal-visible {
   opacity: 1;
   transform: translateY(0);
@@ -81,6 +85,51 @@ html {
   .scroll-reveal {
     opacity: 1;
     transform: none;
+    transition: none;
+  }
+}
+
+/* Texas RAS term reveals */
+.texas-term {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.texas-term.is-visible,
+ol.is-visible .texas-term {
+  opacity: 1;
+  transform: none;
+}
+
+.texas-service-card-detail {
+  max-height: 6rem;
+  opacity: 1;
+  transition: max-height 0.35s ease, opacity 0.35s ease, margin 0.35s ease;
+}
+
+@media (min-width: 768px) {
+  .texas-service-card-detail {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+  }
+
+  .texas-service-card:hover .texas-service-card-detail,
+  .texas-service-card:focus-visible .texas-service-card-detail,
+  .texas-service-card:focus-within .texas-service-card-detail {
+    max-height: 6rem;
+    opacity: 1;
+    margin-top: 0.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .texas-term,
+  .texas-service-card-detail {
+    opacity: 1;
+    transform: none;
+    max-height: none;
     transition: none;
   }
 }
