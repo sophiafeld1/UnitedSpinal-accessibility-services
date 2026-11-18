@@ -158,7 +158,6 @@ export const texasTerms: TexasTerm[] = [
   {
     term: "TDLR",
     meaning: "Texas Department of Licensing and Regulation",
-    href: "https://www.tdlr.texas.gov/",
   },
   {
     term: "TAS",
@@ -214,10 +213,10 @@ export const texasCoreServices: TexasServiceCard[] = [
 ];
 
 export const texasRelatedIntro = {
-  heading: "One Team for Overlapping Accessibility Needs",
+  heading: "Texas Accessibility Specialists for Overlapping Requirements",
   paragraphs: [
-    "Texas projects often involve more than one accessibility requirement. Stay with one team instead of hiring a separate specialist for each layer of review.",
-    "Our specialists cover TDLR, Fair Housing, and related accessibility consulting, including legal consulting where it is appropriate, so most projects can stay with one team.",
+    "At Accessibility Services, a program of United Spinal Association, you can work with one team for Texas Accessibility Standards (TAS) plan reviews and inspections, Fair Housing Act consulting, and ADA guidance.",
+    "Our Texas Registered Accessibility Specialists help you understand which requirements apply, where they overlap, and how to address them in your design.",
   ],
 };
 
@@ -231,20 +230,11 @@ export const texasProjectCategories: TexasProjectCategory[] = [
     title: "TDLR Projects",
     teaserBlurb:
       "Examples of Texas RAS work across registration, plan review, and inspection — published when permissions are confirmed.",
-    pageIntro:
-      "Placeholder examples for TDLR-related Texas RAS work. Named projects will replace these slots after approval.",
+    pageIntro: "",
     image: "/images/texas/projects-promo.jpg",
     placeholders: [
-      {
-        title: "TDLR project example (pending)",
-        description:
-          "A Texas project involving registration, plan review, or inspection. Details unpublished until approved.",
-      },
-      {
-        title: "TDLR project example (pending)",
-        description:
-          "Additional Texas RAS example placeholder. Replace with an approved case once permissions exist.",
-      },
+      { title: "Project example", description: "" },
+      { title: "Project example", description: "" },
     ],
   },
   {
@@ -252,20 +242,11 @@ export const texasProjectCategories: TexasProjectCategory[] = [
     title: "Fair Housing Projects",
     teaserBlurb:
       "Housing and mixed-use work where Fair Housing review sits alongside Texas accessibility — examples pending approval.",
-    pageIntro:
-      "Placeholder examples for Fair Housing-related Texas work. Named projects will replace these slots after approval.",
-    image: "/images/texas/fair-housing.jpg",
+    pageIntro: "",
+    image: "/images/texas/fair-housing-cover.png",
     placeholders: [
-      {
-        title: "Fair Housing project example (pending)",
-        description:
-          "A housing or mixed-use accessibility example. Details unpublished until approved.",
-      },
-      {
-        title: "Fair Housing project example (pending)",
-        description:
-          "Additional Fair Housing example placeholder. Replace with an approved case once permissions exist.",
-      },
+      { title: "Project example", description: "" },
+      { title: "Project example", description: "" },
     ],
   },
 ];

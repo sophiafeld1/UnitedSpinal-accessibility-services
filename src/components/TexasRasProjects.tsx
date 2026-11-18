@@ -88,24 +88,16 @@ export default function TexasRasProjects({
                 <>
                   <h2 className="text-2xl font-bold mb-3">{category.title}</h2>
                   <div
-                    className="h-1 w-14 bg-accent rounded-full mb-4"
+                    className="h-1 w-14 bg-accent rounded-full mb-8"
                     aria-hidden="true"
                   />
-                  <p className="text-gray-700 text-lg leading-relaxed mb-8 max-w-3xl">
-                    {category.pageIntro}
-                  </p>
                   <ul className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {category.placeholders.map((project, index) => (
                       <li
                         key={`${category.id}-${index}`}
                         className="border border-[#e2e2e2] bg-white p-6"
                       >
-                        <p className="text-lg font-bold mb-2">
-                          {project.title}
-                        </p>
-                        <p className="text-gray-700 leading-relaxed">
-                          {project.description}
-                        </p>
+                        <p className="text-lg font-bold">{project.title}</p>
                       </li>
                     ))}
                   </ul>

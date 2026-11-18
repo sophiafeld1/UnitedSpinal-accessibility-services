@@ -21,10 +21,6 @@ export default function TexasRasProjectsPage() {
 
       <section className="py-10">
         <Container>
-          <p className="text-gray-700 text-lg leading-relaxed max-w-3xl mb-6">
-            These placeholders stand in for Texas RAS project examples. Client
-            names, photos, and case studies stay unpublished until approved.
-          </p>
           <div className="flex flex-wrap gap-4 text-sm">
             <Link
               href="/services/tx-ras"
