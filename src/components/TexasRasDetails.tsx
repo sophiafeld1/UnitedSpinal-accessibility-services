@@ -1,12 +1,13 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { getServiceBySlug } from "@/data/services";
 import { getTeamMemberBySlug } from "@/data/team";
 import { getFAQsByService } from "@/data/faqs";
 import {
+  getTexasContactHref,
+  texasContactHref,
   texasCoreServices,
   texasHeroImage,
   texasHeroIntro,
@@ -17,12 +18,10 @@ import {
   texasResources,
   texasTeamSpotlight,
   texasTerms,
-  type TexasRecipientIntent,
 } from "@/data/texasRas";
 import Container from "@/components/Container";
 import FAQAccordion from "@/components/FAQAccordion";
 import CTASection from "@/components/CTASection";
-import TexasContactPanel from "@/components/TexasContactPanel";
 import TexasServiceCard from "@/components/TexasServiceCard";
 import TexasTermsReveal from "@/components/TexasTermsReveal";
 import ScrollReveal from "@/components/ScrollReveal";
@@ -30,12 +29,16 @@ import ScrollReveal from "@/components/ScrollReveal";
 const focusRing =
   "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent";
 
+function teamContactHref(
+  intent: "kate" | "rachael"
+): string {
+  if (intent === "kate") return getTexasContactHref("fair-housing");
+  return getTexasContactHref("registration");
+}
+
 export default function TexasRasDetails() {
   const service = getServiceBySlug("tx-ras");
   const faqs = getFAQsByService("tx-ras");
-  const [contactIntent, setContactIntent] =
-    useState<TexasRecipientIntent>("both");
-  const [formExpanded, setFormExpanded] = useState(false);
   const team = texasTeamSpotlight
     .map((spotlight) => {
       const member = getTeamMemberBySlug(spotlight.slug);
@@ -48,29 +51,6 @@ export default function TexasRasDetails() {
       };
     })
     .filter((entry): entry is NonNullable<typeof entry> => entry !== null);
-
-  const openContact = (intent: TexasRecipientIntent = "both") => {
-    setContactIntent(intent);
-    setFormExpanded(true);
-    requestAnimationFrame(() => {
-      document
-        .getElementById("texas-contact")
-        ?.scrollIntoView({ behavior: "smooth", block: "start" });
-    });
-  };
-
-  useEffect(() => {
-    const expandFromHash = () => {
-      const hash = window.location.hash;
-      if (hash === "#texas-contact" || hash === "#texas-contact-form") {
-        setFormExpanded(true);
-      }
-    };
-
-    expandFromHash();
-    window.addEventListener("hashchange", expandFromHash);
-    return () => window.removeEventListener("hashchange", expandFromHash);
-  }, []);
 
   const heroImage = texasHeroImage || service?.image;
 
@@ -97,13 +77,12 @@ export default function TexasRasDetails() {
               {texasHeroIntro}
             </p>
             <div className="flex flex-wrap gap-4">
-              <button
-                type="button"
-                onClick={() => openContact("both")}
+              <Link
+                href={texasContactHref}
                 className="hero-cta inline-block bg-accent text-white px-8 py-3 font-semibold rounded hover:bg-accent-hover focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
               >
                 Discuss Your Texas Project
-              </button>
+              </Link>
               <Link
                 href="#resources"
                 className="hero-cta inline-block border-2 border-white text-white px-8 py-3 font-semibold rounded hover:bg-white hover:text-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
@@ -197,45 +176,25 @@ export default function TexasRasDetails() {
         </Container>
       </section>
 
-      <section
-        id="texas-contact"
-        className="scroll-mt-24 bg-[#f4f4f4] py-16"
-      >
+      <section className="bg-[#f4f4f4] py-16">
         <Container>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
-            <div>
-              <h2 className="text-3xl font-bold mb-3">
-                {texasHowToBegin.heading}
-              </h2>
-              <div
-                className="h-1 w-14 bg-accent rounded-full mb-6"
-                aria-hidden="true"
-              />
-              <p className="text-gray-700 text-lg leading-relaxed mb-8">
-                {texasHowToBegin.line}
-              </p>
-              <button
-                type="button"
-                onClick={() => openContact("both")}
-                aria-expanded={formExpanded}
-                aria-controls="texas-contact-form"
-                className={`hero-cta inline-block bg-accent text-white px-8 py-3 font-semibold rounded hover:bg-accent-hover ${focusRing} focus-visible:outline-black`}
-              >
-                Contact the Texas team
-              </button>
-            </div>
-            <div>
-              {!formExpanded && (
-                <div className="border border-dashed border-[#cfcfcf] bg-white/70 p-6 md:p-8 text-gray-600 leading-relaxed">
-                  Use the button to open the Texas contact form.
-                </div>
-              )}
-              <TexasContactPanel
-                id="texas-contact-form"
-                intent={contactIntent}
-                expanded={formExpanded}
-              />
-            </div>
+          <div className="max-w-2xl">
+            <h2 className="text-3xl font-bold mb-3">
+              {texasHowToBegin.heading}
+            </h2>
+            <div
+              className="h-1 w-14 bg-accent rounded-full mb-6"
+              aria-hidden="true"
+            />
+            <p className="text-gray-700 text-lg leading-relaxed mb-8">
+              {texasHowToBegin.line}
+            </p>
+            <Link
+              href={texasContactHref}
+              className={`hero-cta inline-block bg-accent text-white px-8 py-3 font-semibold rounded hover:bg-accent-hover ${focusRing} focus-visible:outline-black`}
+            >
+              Contact the Texas team
+            </Link>
           </div>
         </Container>
       </section>
@@ -328,13 +287,12 @@ export default function TexasRasDetails() {
                       {pageBio}
                     </p>
                     <div className="mt-5 flex flex-wrap items-center gap-4">
-                      <button
-                        type="button"
-                        onClick={() => openContact(intent)}
+                      <Link
+                        href={teamContactHref(intent)}
                         className={`bg-accent text-white px-6 py-2.5 rounded font-semibold hover:bg-accent-hover ${focusRing} focus-visible:outline-black`}
                       >
                         Contact {member.name.split(" ")[0]}
-                      </button>
+                      </Link>
                       <a
                         href={`mailto:${email}`}
                         className={`text-accent hover:underline ${focusRing}`}
@@ -362,7 +320,7 @@ export default function TexasRasDetails() {
         headline="Let's Discuss Your Texas Project"
         description="Need help with project registration, paperwork, plan review, or an inspection? Tell us about your project and we'll connect you with the appropriate team member."
         buttonText="Discuss Your Texas Project"
-        buttonHref="#texas-contact"
+        buttonHref={texasContactHref}
       />
     </div>
   );

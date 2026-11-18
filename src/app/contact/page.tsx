@@ -4,9 +4,16 @@ import type { FormEvent } from "react";
 import { Suspense, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { services } from "@/data/services";
-import { texasInquiryOptions } from "@/data/texasRas";
+import {
+  getTexasIntentForTopic,
+  getTexasRecipients,
+  texasTopicOptions,
+} from "@/data/texasRas";
 import PageHeader from "@/components/PageHeader";
 import Container from "@/components/Container";
+
+const focusRing =
+  "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent";
 
 export default function ContactPage() {
   return (
@@ -54,13 +61,13 @@ export default function ContactPage() {
 function ContactForm() {
   const searchParams = useSearchParams();
   const serviceParam = searchParams.get("service") ?? "";
-  const inquiryParam = searchParams.get("inquiry");
-  const inquiryFromQuery = texasInquiryOptions.some(
-    (option) => option.value === inquiryParam
+  const topicParam = searchParams.get("topic");
+  const topicFromQuery = texasTopicOptions.some(
+    (option) => option.value === topicParam
   )
-    ? (inquiryParam ?? "")
+    ? (topicParam ?? "")
     : "";
-  const queryKey = `${serviceParam}|${inquiryFromQuery}`;
+  const queryKey = `${serviceParam}|${topicFromQuery}`;
   const [appliedQueryKey, setAppliedQueryKey] = useState(queryKey);
   const [formData, setFormData] = useState({
     firstName: "",
@@ -69,7 +76,7 @@ function ContactForm() {
     phone: "",
     company: "",
     service: serviceParam,
-    inquiry: serviceParam === "tx-ras" ? inquiryFromQuery : "",
+    topic: serviceParam === "tx-ras" ? topicFromQuery : "",
     state: "",
     preferredContact: "email" as "email" | "phone",
     howHeard: "",
@@ -83,14 +90,23 @@ function ContactForm() {
     setFormData((prev) => ({
       ...prev,
       service: serviceParam,
-      inquiry: serviceParam === "tx-ras" ? inquiryFromQuery : "",
+      topic: serviceParam === "tx-ras" ? topicFromQuery : "",
     }));
   }
 
+  const isTexas = formData.service === "tx-ras";
+  const texasRecipients = isTexas
+    ? getTexasRecipients(getTexasIntentForTopic(formData.topic))
+    : [];
+  const texasEmails = texasRecipients.map((person) => person.email).join(", ");
+  const texasNames = texasRecipients
+    .map((person) => person.firstName)
+    .join(" and ");
+
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    // No mail provider is connected, and Texas category routing has no
-    // confirmed recipients. Do not tell the visitor a Texas inquiry was sent.
+    // No mail provider is connected. Do not tell the visitor a Texas inquiry
+    // was sent — show mailto to topic-routed recipients instead.
     if (formData.service === "tx-ras") {
       setNotSent(true);
       return;
@@ -138,7 +154,7 @@ function ContactForm() {
                     phone: "",
                     company: "",
                     service: "",
-                    inquiry: "",
+                    topic: "",
                     state: "",
                     preferredContact: "email",
                     howHeard: "",
@@ -169,6 +185,9 @@ function ContactForm() {
                 Request a Free Consultation or Training
               </h2>
               <form onSubmit={handleSubmit} className="space-y-6">
+                {isTexas && (
+                  <input type="hidden" name="to" value={texasEmails} readOnly />
+                )}
                 {/* Name row */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
@@ -301,8 +320,8 @@ function ContactForm() {
                       setFormData({
                         ...formData,
                         service: e.target.value,
-                        inquiry:
-                          e.target.value === "tx-ras" ? formData.inquiry : "",
+                        topic:
+                          e.target.value === "tx-ras" ? formData.topic : "",
                       })
                     }
                     className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-accent bg-white"
@@ -317,25 +336,26 @@ function ContactForm() {
                   </select>
                 </div>
 
-                {formData.service === "tx-ras" && (
+                {isTexas && (
                   <div>
                     <label
-                      htmlFor="inquiry"
+                      htmlFor="topic"
                       className="block text-sm font-medium text-gray-700 mb-1"
                     >
-                      Texas question type *
+                      What are you reaching out about? *
                     </label>
                     <select
-                      id="inquiry"
+                      id="topic"
+                      name="topic"
                       required
-                      value={formData.inquiry}
+                      value={formData.topic}
                       onChange={(e) =>
-                        setFormData({ ...formData, inquiry: e.target.value })
+                        setFormData({ ...formData, topic: e.target.value })
                       }
                       className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-accent bg-white"
                     >
-                      <option value="">Select a question type...</option>
-                      {texasInquiryOptions.map((option) => (
+                      <option value="">Select a topic...</option>
+                      {texasTopicOptions.map((option) => (
                         <option key={option.value} value={option.value}>
                           {option.label}
                         </option>
@@ -430,17 +450,22 @@ function ContactForm() {
                   />
                 </div>
 
-                {notSent && (
+                {notSent && texasRecipients.length > 0 && (
                   <p role="status" className="text-gray-700 leading-relaxed">
-                    Your inquiry has not been sent. Email{" "}
-                    <a
-                      href="mailto:info@accessibility-services.com"
-                      className="text-accent hover:underline"
-                    >
-                      info@accessibility-services.com
-                    </a>{" "}
-                    and include whether you need registration and paperwork help
-                    or have a technical and inspection question.
+                    Your inquiry has not been sent. Email {texasNames} directly
+                    at{" "}
+                    {texasRecipients.map((person, index) => (
+                      <span key={person.email}>
+                        {index > 0 ? " or " : null}
+                        <a
+                          href={`mailto:${person.email}`}
+                          className={`text-accent hover:underline ${focusRing}`}
+                        >
+                          {person.email}
+                        </a>
+                      </span>
+                    ))}
+                    .
                   </p>
                 )}
 

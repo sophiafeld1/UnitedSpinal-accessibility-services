@@ -29,8 +29,11 @@
  * - Texas project examples on `/projects/texas-ras`. Keep placeholder slots only
  *   until permissions exist. Do not publish named clients or photos.
  *
- * Email delivery is not connected yet. The Texas contact panel must not claim
- * a message was sent.
+ * Email delivery is not connected yet. The sitewide `/contact` form must not
+ * claim a Texas message was sent.
+ *
+ * Contact UX (canonical form, query params, topic → recipient routing) is
+ * documented in `docs/contact-form.md`.
  *
  * Future possibilities — do not build in phase one, and do not show controls
  * that imply they are available:
@@ -104,6 +107,12 @@ export interface TexasProjectCategory {
 }
 
 export const texasContactHref = "/contact?service=tx-ras";
+
+/** Deep link into the sitewide contact form with Texas RAS preselected. */
+export function getTexasContactHref(topic?: string): string {
+  if (!topic) return texasContactHref;
+  return `${texasContactHref}&topic=${encodeURIComponent(topic)}`;
+}
 
 export const texasHeroImage = "/images/texas/texas-hero.jpg";
 
@@ -300,19 +309,7 @@ export const texasHowToBegin = {
   line: "Contact the team early so we can help you understand which accessibility requirements may apply.",
 };
 
-/** Used by the sitewide `/contact` form when service is Texas RAS. */
-export const texasInquiryOptions = [
-  {
-    value: "registration",
-    label: "Texas RAS: Registration & Paperwork",
-  },
-  {
-    value: "technical",
-    label: "Texas RAS: Technical & Inspection Questions",
-  },
-] as const;
-
-/** Topic options for the Texas page contact panel. */
+/** Topic options for the sitewide `/contact` form when service is Texas RAS. */
 export const texasTopicOptions: TexasTopicOption[] = [
   {
     value: "registration",

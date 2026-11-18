@@ -11,7 +11,7 @@ const focusRing =
   "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent";
 
 export default function TexasTermsReveal({ terms }: TexasTermsRevealProps) {
-  const ref = useRef<HTMLDivElement>(null);
+  const ref = useRef<HTMLOListElement>(null);
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
