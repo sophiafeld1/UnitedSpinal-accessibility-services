@@ -144,6 +144,25 @@ ol.is-visible .texas-term {
 }
 
 /* About box hover */
+/* Texas FAQ: slow expand on hover / focus / open */
+.texas-faq-answer {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.45s ease;
+}
+
+.texas-faq-item:hover .texas-faq-answer,
+.texas-faq-item:focus-within .texas-faq-answer,
+.texas-faq-item.is-open .texas-faq-answer {
+  grid-template-rows: 1fr;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .texas-faq-answer {
+    transition: none;
+  }
+}
+
 .about-box {
   transition: all 0.3s ease;
 }

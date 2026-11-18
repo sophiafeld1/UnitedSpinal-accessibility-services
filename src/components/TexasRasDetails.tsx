@@ -344,9 +344,9 @@ export default function TexasRasDetails() {
       )}
 
       {faqs.length > 0 && (
-        <section className="py-16">
+        <section className="bg-[#f4f4f4] py-16">
           <Container>
-            <FAQAccordion faqs={faqs} variant="strong" />
+            <FAQAccordion faqs={faqs} variant="texas" />
           </Container>
         </section>
       )}
