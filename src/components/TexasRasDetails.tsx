@@ -11,9 +11,9 @@ import {
   texasHeroImage,
   texasHeroIntro,
   texasHowToBegin,
-  texasProjectsPromo,
+  texasProjectCategories,
+  texasProjectsHref,
   texasRelatedIntro,
-  texasRelatedServices,
   texasResources,
   texasTeamSpotlight,
   texasTerms,
@@ -35,7 +35,7 @@ export default function TexasRasDetails() {
   const faqs = getFAQsByService("tx-ras");
   const [contactIntent, setContactIntent] =
     useState<TexasRecipientIntent>("both");
-  const [dialogOpen, setDialogOpen] = useState(false);
+  const [formExpanded, setFormExpanded] = useState(false);
   const team = texasTeamSpotlight
     .map((spotlight) => {
       const member = getTeamMemberBySlug(spotlight.slug);
@@ -49,27 +49,28 @@ export default function TexasRasDetails() {
     })
     .filter((entry): entry is NonNullable<typeof entry> => entry !== null);
 
-  const openContact = (intent: TexasRecipientIntent) => {
+  const openContact = (intent: TexasRecipientIntent = "both") => {
     setContactIntent(intent);
-    setDialogOpen(true);
+    setFormExpanded(true);
+    requestAnimationFrame(() => {
+      document
+        .getElementById("texas-contact")
+        ?.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
   };
 
   useEffect(() => {
-    if (!dialogOpen) return;
-
-    const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") setDialogOpen(false);
+    const expandFromHash = () => {
+      const hash = window.location.hash;
+      if (hash === "#texas-contact" || hash === "#texas-contact-form") {
+        setFormExpanded(true);
+      }
     };
 
-    document.addEventListener("keydown", onKeyDown);
-    const previousOverflow = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-
-    return () => {
-      document.removeEventListener("keydown", onKeyDown);
-      document.body.style.overflow = previousOverflow;
-    };
-  }, [dialogOpen]);
+    expandFromHash();
+    window.addEventListener("hashchange", expandFromHash);
+    return () => window.removeEventListener("hashchange", expandFromHash);
+  }, []);
 
   const heroImage = texasHeroImage || service?.image;
 
@@ -96,12 +97,13 @@ export default function TexasRasDetails() {
               {texasHeroIntro}
             </p>
             <div className="flex flex-wrap gap-4">
-              <a
-                href="#texas-contact"
+              <button
+                type="button"
+                onClick={() => openContact("both")}
                 className="hero-cta inline-block bg-accent text-white px-8 py-3 font-semibold rounded hover:bg-accent-hover focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
               >
                 Discuss Your Texas Project
-              </a>
+              </button>
               <Link
                 href="#resources"
                 className="hero-cta inline-block border-2 border-white text-white px-8 py-3 font-semibold rounded hover:bg-white hover:text-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
@@ -127,20 +129,24 @@ export default function TexasRasDetails() {
                 className="scroll-reveal-slow h-full"
                 delayMs={index * 140}
               >
-                <TexasServiceCard {...item} onOpenContact={openContact} />
+                <TexasServiceCard
+                  title={item.title}
+                  hover={item.hover}
+                  image={item.image}
+                />
               </ScrollReveal>
             ))}
           </div>
         </Container>
       </section>
 
-      <section className="py-16">
+      <section className="pt-10 pb-4">
         <Container>
           <TexasTermsReveal terms={texasTerms} />
         </Container>
       </section>
 
-      <section className="py-16">
+      <section className="pt-6 pb-16">
         <Container>
           <div className="mb-8">
             <h2 className="text-3xl font-bold mb-3">
@@ -159,14 +165,33 @@ export default function TexasRasDetails() {
               </p>
             ))}
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {texasRelatedServices.map((item, index) => (
-              <TexasServiceCard
-                key={item.title}
-                {...item}
-                number={index + 1}
-                onOpenContact={openContact}
-              />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {texasProjectCategories.map((category) => (
+              <Link
+                key={category.id}
+                href={`${texasProjectsHref}#${category.id}`}
+                className="group relative block overflow-hidden aspect-[4/3] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+              >
+                <Image
+                  src={category.image}
+                  alt=""
+                  fill
+                  sizes="(min-width: 768px) 50vw, 100vw"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105 group-focus-visible:scale-105"
+                />
+                <span className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/35 to-black/10" />
+                <span className="absolute inset-x-0 bottom-0 p-5 md:p-6">
+                  <span className="block text-xl font-bold text-white">
+                    {category.title}
+                  </span>
+                  <span className="mt-2 block text-sm text-white/90 leading-relaxed">
+                    {category.teaserBlurb}
+                  </span>
+                  <span className="mt-4 inline-block text-sm font-semibold text-accent">
+                    View Texas RAS projects
+                  </span>
+                </span>
+              </Link>
             ))}
           </div>
         </Container>
@@ -189,53 +214,33 @@ export default function TexasRasDetails() {
               <p className="text-gray-700 text-lg leading-relaxed mb-8">
                 {texasHowToBegin.line}
               </p>
-              <a
-                href="#texas-contact-form"
+              <button
+                type="button"
+                onClick={() => openContact("both")}
+                aria-expanded={formExpanded}
+                aria-controls="texas-contact-form"
                 className={`hero-cta inline-block bg-accent text-white px-8 py-3 font-semibold rounded hover:bg-accent-hover ${focusRing} focus-visible:outline-black`}
               >
                 Contact the Texas team
-              </a>
+              </button>
             </div>
-            <TexasContactPanel id="texas-contact-form" intent="both" />
-          </div>
-        </Container>
-      </section>
-
-      <section className="py-16">
-        <Container>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch overflow-hidden border border-[#e2e2e2] bg-white">
-            <div className="relative min-h-56 lg:min-h-full">
-              <Image
-                src={texasProjectsPromo.image}
-                alt=""
-                fill
-                sizes="(min-width: 1024px) 50vw, 100vw"
-                className="object-cover"
+            <div>
+              {!formExpanded && (
+                <div className="border border-dashed border-[#cfcfcf] bg-white/70 p-6 md:p-8 text-gray-600 leading-relaxed">
+                  Use the button to open the Texas contact form.
+                </div>
+              )}
+              <TexasContactPanel
+                id="texas-contact-form"
+                intent={contactIntent}
+                expanded={formExpanded}
               />
-            </div>
-            <div className="p-8 md:p-10 flex flex-col justify-center">
-              <h2 className="text-3xl font-bold mb-3">
-                {texasProjectsPromo.heading}
-              </h2>
-              <div
-                className="h-1 w-14 bg-accent rounded-full mb-6"
-                aria-hidden="true"
-              />
-              <p className="text-gray-700 text-lg leading-relaxed mb-8">
-                {texasProjectsPromo.body}
-              </p>
-              <Link
-                href={texasProjectsPromo.href}
-                className={`inline-block bg-accent text-white px-8 py-3 font-semibold rounded hover:bg-accent-hover w-fit ${focusRing} focus-visible:outline-black`}
-              >
-                {texasProjectsPromo.cta}
-              </Link>
             </div>
           </div>
         </Container>
       </section>
 
-      <section id="resources" className="scroll-mt-24 bg-[#f4f4f4] py-16">
+      <section id="resources" className="scroll-mt-24 py-16">
         <Container>
           <div className="max-w-3xl">
             <h2 className="text-3xl font-bold mb-3">TDLR Forms & Resources</h2>
@@ -282,7 +287,7 @@ export default function TexasRasDetails() {
       </section>
 
       {team.length > 0 && (
-        <section className="py-16">
+        <section className="bg-[#f4f4f4] py-16">
           <Container>
             <h2 className="text-3xl font-bold mb-3">
               Meet Your Texas Accessibility Team
@@ -346,7 +351,7 @@ export default function TexasRasDetails() {
       )}
 
       {faqs.length > 0 && (
-        <section className="bg-[#f4f4f4] py-16">
+        <section className="py-16">
           <Container>
             <FAQAccordion faqs={faqs} variant="strong" />
           </Container>
@@ -359,40 +364,6 @@ export default function TexasRasDetails() {
         buttonText="Discuss Your Texas Project"
         buttonHref="#texas-contact"
       />
-
-      {dialogOpen && (
-        <div
-          className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-6"
-          role="presentation"
-        >
-          <button
-            type="button"
-            aria-label="Close contact form"
-            className="absolute inset-0 bg-black/50"
-            onClick={() => setDialogOpen(false)}
-          />
-          <div
-            role="dialog"
-            aria-modal="true"
-            aria-labelledby="texas-contact-dialog-title"
-            className="relative z-10 w-full max-w-xl max-h-[92vh] overflow-y-auto shadow-xl"
-          >
-            <div className="absolute right-3 top-3 z-10">
-              <button
-                type="button"
-                onClick={() => setDialogOpen(false)}
-                className={`bg-white text-heading px-3 py-1.5 rounded font-semibold border border-[#e2e2e2] hover:bg-[#f4f4f4] ${focusRing}`}
-              >
-                Close
-              </button>
-            </div>
-            <h2 id="texas-contact-dialog-title" className="sr-only">
-              Texas project contact
-            </h2>
-            <TexasContactPanel intent={contactIntent} />
-          </div>
-        </div>
-      )}
     </div>
   );
 }

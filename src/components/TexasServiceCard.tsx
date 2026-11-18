@@ -1,31 +1,26 @@
 "use client";
 
 import Image from "next/image";
-import type { TexasRecipientIntent } from "@/data/texasRas";
 
 interface TexasServiceCardProps {
   title: string;
   hover: string;
   image: string;
-  intent: TexasRecipientIntent;
-  onOpenContact: (intent: TexasRecipientIntent) => void;
   number?: number;
   showDetail?: boolean;
 }
 
+/** Hover/focus summary only — does not open contact. */
 export default function TexasServiceCard({
   title,
   hover,
   image,
-  intent,
-  onOpenContact,
   number,
   showDetail = false,
 }: TexasServiceCardProps) {
   return (
-    <button
-      type="button"
-      onClick={() => onOpenContact(intent)}
+    <div
+      tabIndex={0}
       className="texas-service-card group relative block w-full overflow-hidden text-left aspect-[4/3] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
     >
       <Image
@@ -51,6 +46,6 @@ export default function TexasServiceCard({
           {hover}
         </span>
       </span>
-    </button>
+    </div>
   );
 }

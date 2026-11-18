@@ -26,11 +26,11 @@
  *   for the one-team intro section.
  * - Fair Housing card copy. Ask Rachael what wording, if any, she wants under
  *   Fair Housing. Do not invent a summary. The page shows "[summary here]".
- * - Related-service summaries (Fair Housing, Facility Assessments, Stadium &
- *   Assembly). Same placeholder until the team supplies text.
+ * - Texas project examples on `/projects/texas-ras`. Keep placeholder slots only
+ *   until permissions exist. Do not publish named clients or photos.
  *
- * Email delivery is not connected yet. The Texas contact panel shows recipients
- * and must not claim a message was sent.
+ * Email delivery is not connected yet. The Texas contact panel must not claim
+ * a message was sent.
  *
  * Future possibilities — do not build in phase one, and do not show controls
  * that imply they are available:
@@ -64,13 +64,6 @@ export interface TexasServiceCard {
   intent: TexasRecipientIntent;
 }
 
-export interface TexasRelatedService {
-  title: string;
-  hover: string;
-  image: string;
-  intent: TexasRecipientIntent;
-}
-
 export interface TexasResource {
   label: string;
   url: string;
@@ -90,9 +83,31 @@ export interface TexasImagePrompt {
   prompt: string;
 }
 
+export interface TexasTopicOption {
+  value: string;
+  label: string;
+  intent: TexasRecipientIntent;
+}
+
+export interface TexasProjectPlaceholder {
+  title: string;
+  description: string;
+}
+
+export interface TexasProjectCategory {
+  id: "tdlr" | "fair-housing";
+  title: string;
+  teaserBlurb: string;
+  pageIntro: string;
+  image: string;
+  placeholders: TexasProjectPlaceholder[];
+}
+
 export const texasContactHref = "/contact?service=tx-ras";
 
 export const texasHeroImage = "/images/texas/texas-hero.jpg";
+
+export const texasProjectsHref = "/projects/texas-ras";
 
 export const texasContactPeople: TexasContactPerson[] = [
   {
@@ -116,6 +131,14 @@ export function getTexasRecipients(
 ): TexasContactPerson[] {
   if (intent === "both") return texasContactPeople;
   return texasContactPeople.filter((person) => person.intent === intent);
+}
+
+export function getTexasIntentForTopic(
+  topic: string,
+  fallback: TexasRecipientIntent = "both"
+): TexasRecipientIntent {
+  const option = texasTopicOptions.find((item) => item.value === topic);
+  return option?.intent ?? fallback;
 }
 
 export const texasTerms: TexasTerm[] = [
@@ -173,6 +196,12 @@ export const texasCoreServices: TexasServiceCard[] = [
     image: "/images/texas/existing-conditions.jpg",
     intent: "both",
   },
+  {
+    title: "Fair Housing",
+    hover: "[summary here]",
+    image: "/images/texas/fair-housing.jpg",
+    intent: "kate",
+  },
 ];
 
 export const texasRelatedIntro = {
@@ -183,34 +212,54 @@ export const texasRelatedIntro = {
   ],
 };
 
-export const texasRelatedServices: TexasRelatedService[] = [
+/**
+ * Placeholder project slots only. Do not add client names, logos, or photos
+ * until permission is confirmed.
+ */
+export const texasProjectCategories: TexasProjectCategory[] = [
   {
-    title: "Fair Housing Reviews",
-    hover: "[summary here]",
+    id: "tdlr",
+    title: "TDLR Projects",
+    teaserBlurb:
+      "Examples of Texas RAS work across registration, plan review, and inspection — published when permissions are confirmed.",
+    pageIntro:
+      "Placeholder examples for TDLR-related Texas RAS work. Named projects will replace these slots after approval.",
+    image: "/images/texas/projects-promo.jpg",
+    placeholders: [
+      {
+        title: "TDLR project example (pending)",
+        description:
+          "A Texas project involving registration, plan review, or inspection. Details unpublished until approved.",
+      },
+      {
+        title: "TDLR project example (pending)",
+        description:
+          "Additional Texas RAS example placeholder. Replace with an approved case once permissions exist.",
+      },
+    ],
+  },
+  {
+    id: "fair-housing",
+    title: "Fair Housing Projects",
+    teaserBlurb:
+      "Housing and mixed-use work where Fair Housing review sits alongside Texas accessibility — examples pending approval.",
+    pageIntro:
+      "Placeholder examples for Fair Housing-related Texas work. Named projects will replace these slots after approval.",
     image: "/images/texas/fair-housing.jpg",
-    intent: "kate",
-  },
-  {
-    title: "Facility Assessments",
-    hover: "[summary here]",
-    image: "/images/texas/facility-assessment.jpg",
-    intent: "both",
-  },
-  {
-    title: "Stadium & Assembly Accessibility",
-    hover: "[summary here]",
-    image: "/images/texas/stadium-assembly.jpg",
-    intent: "both",
+    placeholders: [
+      {
+        title: "Fair Housing project example (pending)",
+        description:
+          "A housing or mixed-use accessibility example. Details unpublished until approved.",
+      },
+      {
+        title: "Fair Housing project example (pending)",
+        description:
+          "Additional Fair Housing example placeholder. Replace with an approved case once permissions exist.",
+      },
+    ],
   },
 ];
-
-export const texasProjectsPromo = {
-  heading: "Project Types",
-  body: "From housing and retail to stadiums and campuses, our Texas work spans a wide range of facilities.",
-  href: "/projects",
-  cta: "View our projects",
-  image: "/images/texas/projects-promo.jpg",
-};
 
 export const texasResources: TexasResource[] = [
   {
@@ -251,6 +300,7 @@ export const texasHowToBegin = {
   line: "Contact the team early so we can help you understand which accessibility requirements may apply.",
 };
 
+/** Used by the sitewide `/contact` form when service is Texas RAS. */
 export const texasInquiryOptions = [
   {
     value: "registration",
@@ -261,6 +311,45 @@ export const texasInquiryOptions = [
     label: "Texas RAS: Technical & Inspection Questions",
   },
 ] as const;
+
+/** Topic options for the Texas page contact panel. */
+export const texasTopicOptions: TexasTopicOption[] = [
+  {
+    value: "registration",
+    label: "Registration",
+    intent: "both",
+  },
+  {
+    value: "plan-review",
+    label: "Plan Review",
+    intent: "both",
+  },
+  {
+    value: "inspections",
+    label: "Inspections",
+    intent: "both",
+  },
+  {
+    value: "technical-assistance",
+    label: "Technical Assistance",
+    intent: "both",
+  },
+  {
+    value: "existing-conditions",
+    label: "Existing Conditions",
+    intent: "both",
+  },
+  {
+    value: "fair-housing",
+    label: "Fair Housing",
+    intent: "kate",
+  },
+  {
+    value: "general-tdlr",
+    label: "General / TDLR",
+    intent: "both",
+  },
+];
 
 const sharedImageStyle =
   "photorealistic, warm natural light, United Spinal orange accent used sparingly, no text overlays, no logos, no watermarks, 4:3 landscape, professional accessibility consulting mood";

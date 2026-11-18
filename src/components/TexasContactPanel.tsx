@@ -1,9 +1,13 @@
 "use client";
 
 import type { FormEvent } from "react";
-import { useId, useState } from "react";
-import type { TexasRecipientIntent } from "@/data/texasRas";
-import { getTexasRecipients } from "@/data/texasRas";
+import { useEffect, useId, useState } from "react";
+import {
+  getTexasIntentForTopic,
+  getTexasRecipients,
+  texasTopicOptions,
+  type TexasRecipientIntent,
+} from "@/data/texasRas";
 
 const fieldClass =
   "w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-accent";
@@ -14,19 +18,18 @@ interface TexasContactPanelProps {
   intent: TexasRecipientIntent;
   heading?: string;
   id?: string;
+  /** When false, only the collapsed affordance is shown. */
+  expanded?: boolean;
 }
 
 export default function TexasContactPanel({
   intent,
-  heading,
+  heading = "Contact the Texas team",
   id,
+  expanded = true,
 }: TexasContactPanelProps) {
   const formId = useId();
-  const recipients = getTexasRecipients(intent);
-  const emails = recipients.map((person) => person.email).join(", ");
-  const names = recipients.map((person) => person.firstName).join(" and ");
-  const title = heading ?? `Contact ${names}`;
-
+  const [topic, setTopic] = useState("");
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -36,34 +39,58 @@ export default function TexasContactPanel({
   });
   const [notSent, setNotSent] = useState(false);
 
+  useEffect(() => {
+    setTopic(intent === "kate" ? "fair-housing" : "");
+    setNotSent(false);
+  }, [intent]);
+
+  const recipientIntent = topic
+    ? getTexasIntentForTopic(topic, intent)
+    : intent;
+  const recipients = getTexasRecipients(recipientIntent);
+  const emails = recipients.map((person) => person.email).join(", ");
+  const names = recipients.map((person) => person.firstName).join(" and ");
+
   const handleSubmit = (event: FormEvent) => {
     event.preventDefault();
     setNotSent(true);
   };
+
+  if (!expanded) {
+    return <div id={id} hidden />;
+  }
 
   return (
     <div
       id={id}
       className="border border-[#e2e2e2] bg-white p-6 md:p-8"
     >
-      <h3 className="text-xl font-bold mb-2">{title}</h3>
-      <p className="text-gray-700 leading-relaxed mb-6">
-        This message will be directed to {names}. Email{" "}
-        {recipients.map((person, index) => (
-          <span key={person.email}>
-            {index > 0 ? " or " : null}
-            <a
-              href={`mailto:${person.email}`}
-              className={`text-accent hover:underline ${focusRing}`}
-            >
-              {person.email}
-            </a>
-          </span>
-        ))}
-        .
-      </p>
+      <h3 className="text-xl font-bold mb-6">{heading}</h3>
       <form onSubmit={handleSubmit} className="space-y-4">
         <input type="hidden" name="to" value={emails} readOnly />
+        <div>
+          <label
+            htmlFor={`${formId}-topic`}
+            className="block text-sm font-medium text-gray-700 mb-1"
+          >
+            What are you reaching out about? *
+          </label>
+          <select
+            id={`${formId}-topic`}
+            name="topic"
+            required
+            value={topic}
+            onChange={(event) => setTopic(event.target.value)}
+            className={`${fieldClass} bg-white`}
+          >
+            <option value="">Select a topic...</option>
+            {texasTopicOptions.map((option) => (
+              <option key={option.value} value={option.value}>
+                {option.label}
+              </option>
+            ))}
+          </select>
+        </div>
         <div>
           <label
             htmlFor={`${formId}-name`}
